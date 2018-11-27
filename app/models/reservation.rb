@@ -1,6 +1,7 @@
 class Reservation < ApplicationRecord
-  belongs_to :user
+  belongs_to :client, class_name: :User, foreign_key: :user_id
   belongs_to :talent
+  has_one :talent_user, through: :talent, source: :user
 
   validates :begin_date, :end_date, presence: true
 

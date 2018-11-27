@@ -1,0 +1,37 @@
+<div class="table-booking">
+  <h1>My bookings as talent</h1>
+
+  <div class="tabs over-to-come">
+    <a href="#" class="tab active">To come</a>
+    <a href="#" class="tab">Over</a>
+  </div>
+
+      <ul>
+        <% @reservations.each do |reservation| %>
+          <li class="resa-container">
+            <div class="resa-status">
+              <p><%= reservation.status %></p>
+            </div>
+            <img src="https://via.placeholder.com/60" alt="" class="resa-avatar">
+            <div class="resa-name">
+              <p><%= reservation.client.first_name %> <%= reservation.client.last_name %></p>
+            </div>
+            <div class="resa-instru">
+              <p><%= reservation.talent.instrument %></p>
+            </div>
+            <div class="resa-dates">
+              <p><%= reservation.begin_date %> - <%= reservation.end_date %></p>
+            </div>
+            <div class='resa-title'>
+              <p><%= reservation.title %></p>
+            </div>
+            <div class="resa-total">
+              <p><%= reservation.total_price %></p>
+            </div>
+          </li>
+        <% end %>
+
+      </ul>
+</div>
+
+
