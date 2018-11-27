@@ -14,13 +14,13 @@
             </div>
             <img src="https://via.placeholder.com/60" alt="" class="resa-avatar">
             <div class="resa-name">
-              <p><%= @reservation.user.first_name %> <%= reservation.user.last_name %></p>
+              <p><%= reservation.client.first_name %> <%= reservation.client.last_name %></p>
             </div>
             <div class="resa-instru">
               <p><%= reservation.talent.instrument %></p>
             </div>
             <div class="resa-dates">
-              <p><%= @reservation.begin_date %> - <%= @reservation.end_date %></p>
+              <p><%= reservation.begin_date %> - <%= reservation.end_date %></p>
             </div>
             <div class='resa-title'>
               <p><%= reservation.title %></p>
@@ -29,7 +29,7 @@
               <p><%= reservation.total_price %></p>
             </div>
           </li>
-        <%= end %>
+        <% end %>
 
       </ul>
 </div>

@@ -13,13 +13,30 @@
   </p>
 
 
-<div>
-  <p>Booking dates & hours</p>
-  <%= simple_form_for [@talent, @reservation] do |f| %>
-    <%= f.input :duration %>
-    <%#= f.input :sono, as: :check_boxes, collection: ["I provide the sound material"] %>
-    <%= f.submit "Book", class: "btn btn-primary" %>
-    <%= f.button :button, "Reset", type: "reset", class: "btn-outline-secondary" %>
-  <% end %>
-</div>
 
+<div>
+  <h1>Booking</h1>
+  <%= simple_form_for [@talent, @reservation] do |f| %>
+    <div id="book-a-talent">
+      <div class="row">
+        <div class='col-sm-6 col-sm-offset-3'>
+          <div class="form-group">
+            <div class='input-group date' id='datetimepicker'>
+              <%= f.input :appointment, label: false, placeholder: "Select the time and hours", class: "form-control" %>
+              <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+              </span>
+            </div>
+          </div>
+          <div class="form-group">
+            <%#= f.input :sono, as: :check_boxes, collection: ["I provide the sound material"] %>
+          </div>
+          <div class="form-group">
+            <%= f.submit "Book", class: "btn btn-primary" %>
+            <%= f.button :button, "Reset", type: "reset", class: "btn-outline-secondary" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+</div>

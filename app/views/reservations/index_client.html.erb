@@ -14,10 +14,10 @@
               <p><%= reservation.talent.instrument %></p>
             </div>
             <div>
-              <p><%= @reservation.user.first_name %> <%= reservation.user.last_name %></p>
+              <p><%= reservation.talent_user.first_name %> <%= reservation.talent_user.last_name %></p>
             </div>
             <div>
-              <p><%= @reservation.begin_date %> - <%= @reservation.end_date %></p>
+              <p><%= reservation.begin_date %> - <%= reservation.end_date %></p>
             </div>
             <div class='resa-title'>
               <p><%= reservation.title %></p>
@@ -26,7 +26,7 @@
               <p><%= link_to "voir la facture" %></p>
             </div>
           </li>
-        <%= end %>
+        <% end %>
 
       </ul>
 </div>

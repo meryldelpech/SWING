@@ -18,6 +18,9 @@
     <% if @user = @reservation.client %>
       <p><%= link_to "voir la facture" %></p>
     <% end %>
+    <div>
+      <%= f.input :status, collection: ["accepted", "declined"], "accept or decline the booking" %>
+    </div>
 </div>
 
 <div>

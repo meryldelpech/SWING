@@ -1,10 +1,10 @@
 class ReservationsController < ApplicationController
   def index_client
-    @client_reservations = current_user.reservations
+    @reservations = current_user.reservations
   end
 
   def index_talent
-    @talent_reservations = current_user.talents_reservations
+    @reservations = current_user.talents_reservations
   end
 
   def show
@@ -44,7 +44,7 @@ class ReservationsController < ApplicationController
 
   private
   def reservation_params
-    params.require(:reservation).permit(:duration, :location, :title)
+    params.require(:reservation).permit(:duration, :location, :title, :begin_date, :end_date, :status, :total_price, :fees)
 
   end
 end
