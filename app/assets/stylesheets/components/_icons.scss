@@ -1,8 +1,23 @@
-#avatar_man {
+#avatar-man {
   width: 48px;
+  fill: white;
+}
+
+div {
+  #avatar-man{
   fill: $primary;
-  transition: fill .5s;
-  &:hover {
-    fill: $secondary;
+  position: relative;
+  left: 230px;
+  background: white;
+  height: 72px;
+  width: 72px;
+  transition: border .2s ease-in-out;
+  border: 6px solid white;
+  &:hover{
+    border: 4px solid white
+  }
+  border-radius: 50%;
+  text-align: center;
+  align-items: center;
   }
 }
