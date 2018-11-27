@@ -4,15 +4,15 @@
 
   <div class="navbar-wagon-left hidden-xs hidden-sm">
     <%= form_tag({controller: "talents", action: "index"}, method: "get", class: "form-inline") do %>
-      <%= text_field_tag 'who', nil, placeholder: 'instrument' %>
-      <%= text_field_tag 'where', nil, placeholder: 'location' %>
-      <%= submit_tag "Search" %>
+      <%= text_field_tag 'who', nil, placeholder: 'instrument', class:'form-input' %>
+      <%= text_field_tag 'where', nil, placeholder: 'location', class:'form-input' %>
+      <%= submit_tag "Search", class:"form-search" %>
     <% end %>
   </div>
 
  <div class="navbar-wagon-right hidden-xs hidden-sm">
-   <%= link_to "Inscription", new_user_registration_path, class: "btn btn-warning navbar-btn" %>
-   <%= link_to "Connexion", new_user_session_path, class: "btn btn-warning navbar-btn" %>
+   <%= link_to "Inscription", new_user_registration_path, class: "btn navbar-btn" %>
+   <%= link_to "Connexion", new_user_session_path, class: "btn navbar-btn" %>
  </div>
 
 </div>
