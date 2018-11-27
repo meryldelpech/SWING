@@ -1,2 +1,10 @@
-<h1>Talents#new</h1>
-<p>Find me in app/views/talents/new.html.erb</p>
+<div class="container">
+<h1>Add a new talent</h1>
+
+  <%= simple_form_for [@talent] do |f| %>
+    <%= f.input :instrument %>
+    <%= f.input :experience %>
+    <%= f.input :price %>
+    <%= f.submit "add a talent", class: "btn btn-primary" %>
+  <% end %>
+</div>
