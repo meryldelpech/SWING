@@ -1,8 +1,12 @@
 class TalentsController < ApplicationController
+
   def index
+    @talents = Talent.where(instrument: params[:who])
   end
 
   def show
+    @talent = Talent.find(params[:id])
+    @reservation = Reservation.new
   end
 
   def new
@@ -31,7 +35,7 @@ class TalentsController < ApplicationController
   private
 
   def talent_params
-    params.require(:talent).permit(:instrument, :experience, :price, :user_id)
+    params.require(:talent).permit(:instrument, :experience, :price, :photo, :user_id)
   end
 end
 
