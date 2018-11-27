@@ -2,8 +2,7 @@
 <section id="user">
 
   <section class="user-picture"
-    style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-    url('<%= cl_image_path Talent.last.photo, height: 300, width: 400, crop: :fill %>')">
+    style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2));">
     <%= current_user.email %>
     <div width="72px">
       <%= show_svg('avatar_man.svg') %>
