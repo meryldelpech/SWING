@@ -1,10 +1,18 @@
-<div class="container">
+<section id="user">
+  <%= current_user.email %>
+  <div width="72px">
+  <%= show_svg('avatar_man.svg') %>
+  </div>
+</section>
+
+<section id="add-a-talent">
 <h1>Add a new talent</h1>
+
 
   <%= simple_form_for [@talent] do |f| %>
     <%= f.input :instrument %>
     <%= f.input :experience %>
     <%= f.input :price %>
-    <%= f.submit "add a talent", class: "btn btn-primary" %>
+    <%= f.submit "add a talent" %>
   <% end %>
-</div>
+</section>

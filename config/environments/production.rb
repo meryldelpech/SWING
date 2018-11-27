@@ -85,6 +85,11 @@ Rails.application.configure do
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
+  config.assets.precompile += %w( '.svg' )
+
+  # Must include to get inline SVGs to work in deploy
+  config.assets.css_compressor = :scss
+
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
