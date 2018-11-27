@@ -1,5 +1,6 @@
 class TalentsController < ApplicationController
   def index
+    @talents = Talent.where(instrument: params[:who])
   end
 
   def show
