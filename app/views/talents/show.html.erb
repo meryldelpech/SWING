@@ -1,4 +1,4 @@
-
+<!--
   <p><%= @talent.user.first_name %></p>
   <p><%= @talent.instrument %></p>
   <p>(3 stars)</p>
@@ -38,5 +38,34 @@
       </div>
     </div>
   <% end %>
+
+
+<div class="section-user">
+<section id="user">
+
+  <section class="user-picture"
+    style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2));">
+    <%= current_user.email %>
+    <div width="72px">
+      <%= show_svg('avatar_man.svg') %>
+    </div>
+  </section>
+
+  <section class="user-descritpion">
+    <h1><%= @talent.user.first_name %></h1>
+    <p><%= @talent.instrument %></p>
+    <p>(3 stars)</p>
+    <p><%= @talent.user.description %></p>
+    <p><%= @talent.price %></p>
+    <h3>Last events</h3>
+    <p>
+      <% if @reservation.title? %>
+      <strong><%= @reservation.title %></strong>
+    <% else %>
+      <%= "This person didn't join any past event" %>
+    <% end %>
+  </p>
+  </section>
+</section>
 
 </div>

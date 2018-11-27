@@ -1,17 +1,6 @@
-// Import your layouts CSS files here.
-// Examples:
-// @import "dashboard";
-// @import "profile";
-// @import "map";
-
-html {
-  // background: $primary;
-}
-
 .section-user {
   background: $primary;
   color: rgba(255,255,255,1);
-
   display: flex;
   align-items: center;
   #user {

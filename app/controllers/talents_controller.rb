@@ -38,5 +38,3 @@ class TalentsController < ApplicationController
     params.require(:talent).permit(:instrument, :experience, :price, :photo, :user_id)
   end
 end
-
-
