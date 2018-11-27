@@ -35,7 +35,7 @@ class TalentsController < ApplicationController
   private
 
   def talent_params
-    params.require(:talent).permit(:instrument, :experience, :price, :user_id)
+    params.require(:talent).permit(:instrument, :experience, :price, :photo, :user_id)
   end
 end
 
