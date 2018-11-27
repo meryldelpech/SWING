@@ -1,0 +1,18 @@
+<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)">
+  <div class="card-category">Expert</div>
+  <div class="card-description">
+    <ul class= "card-talents">
+      <!-- pour chaque talent de user on crée un li -->
+      <% talented_user.talents.each do |talent| %>
+        <li>
+          <%= talent.instrument %>
+          <%= talent.experience %>
+          <%= talent.price %> €
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+  <a class="card-link" href="#" ></a>
+</div>
+
