@@ -9,6 +9,11 @@ class ReservationsController < ApplicationController
 
   def show
     @reservation = Reservation.find(params[:id])
+    if current_user == @reservation.client
+      @user = @reservation.talent_user
+    else
+      @user = @reservation.client
+    end
   end
 
   def new

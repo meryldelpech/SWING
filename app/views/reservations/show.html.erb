@@ -1,2 +1,28 @@
-<h1>Reservations#show</h1>
-<p>Find me in app/views/reservations/show.html.erb</p>
+<div>
+  <div>
+    <h1>Booking recap</h1>
+    <h2><%= @reservation.title %></h2>
+  </div>
+  <div>
+    <p>Dates : <%= @reservation.begin_date %> | <%= @reservation.end_date %> </p>
+    <p>Music : <%= @reservation.talent.instrument %></p>
+    <p>Paiements :</p>
+      <ul>
+        <li>
+          <p><%= @reservation.duration %>heures x <%= @reservaton.talent.price %>€      <%= @reservation.total_price%></p>
+          <p>Frais de service :  <%= @reservation.total_price*20% %> </p>
+          <p>TOTAL : <%= @reservation.net_total_price %></p>
+        </li>
+      </ul>
+    <p>Infos pratiques du musicien: <%= @reservation.talent.infos %></p>
+    <% if @user = @reservation.client %>
+      <p><%= link_to "voir la facture" %></p>
+    <% end %>
+</div>
+
+<div>
+  <img src="https://via.placeholder.com/60" alt="">
+  <p><%= @user.first_name %> <%= @user.last_name %></p>
+  <p><%= @user.description %></p>
+  <p>Contact <%= @user.first_name %>: <%= @user.phone_number %></p>
+</div>
