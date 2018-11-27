@@ -28,6 +28,18 @@ users_attributes = [
 ]
 User.create!(users_attributes)
 
+puts "creating client..."
+client = User.create!(
+  first_name:   'Colette',
+  last_name:   'coco',
+  description:  "",
+  date_of_birth: Date.new(1988,2,3),
+  phone_number: '0608524332',
+  email: 'colette.coco@gmail.com',
+  password: '12345678',
+  password_confirmation: '12345678'
+  )
+
 10.times do
   Talent.create(
     instrument:   Faker::Music.instrument,
@@ -36,5 +48,14 @@ User.create!(users_attributes)
     user: User.all.sample
     )
 end
+
+puts "creating reservations..."
+Reservation.create!(
+  duration: 6,
+  location: "Paris",
+  title: "Pianiste pour la Fête de la Musique",
+  user_id: client.id,
+  talent_id: Talent.all.sample.id
+  )
 
 puts "seed finished!"
