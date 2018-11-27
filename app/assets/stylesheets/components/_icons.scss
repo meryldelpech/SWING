@@ -12,10 +12,10 @@ div {
   height: 72px;
   width: 72px;
   transition: border .2s ease-in-out;
-  border: 6px solid white;
   &:hover{
     border: 4px solid white
   }
+  border: 6px solid white;
   border-radius: 50%;
   text-align: center;
   align-items: center;
