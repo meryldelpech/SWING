@@ -6,6 +6,7 @@
     <ul class= "card-talents">
       <!-- pour chaque talent de user on crée un li -->
       <% talented_user.talents.each do |talent| %>
+
         <li>
           <%= talent.instrument %>
           <%= talent.experience %>
@@ -14,7 +15,7 @@
       <% end %>
     </ul>
   </div>
-  <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+  <img class="card-user" src="<%= cl_image_path current_user.photo %>">
   <a class="card-link" href="#" ></a>
 </div>
 
