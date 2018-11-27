@@ -8,9 +8,17 @@ class TalentsController < ApplicationController
   end
 
   def new
+    @talent = Talent.new
   end
 
   def create
+    @talent = Talent.new(talent_params)
+    @talent.user = current_user
+    if @talent.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def edit
@@ -21,4 +29,12 @@ class TalentsController < ApplicationController
 
   def destroy
   end
+
+  private
+
+  def talent_params
+    params.require(:talent).permit(:instrument, :experience, :price, :user_id)
+  end
 end
+
+

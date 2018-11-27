@@ -7,6 +7,7 @@ gem 'pg', '~> 0.21'
 gem 'puma'
 gem 'rails', '5.2.1'
 gem 'redis'
+gem 'faker', '~> 1.6', '>= 1.6.6'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
@@ -17,6 +18,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'devise'
 gem 'simple_form'
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'

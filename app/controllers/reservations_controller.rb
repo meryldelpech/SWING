@@ -13,7 +13,11 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
     @talent = Talent.find(params[:talent_id])
     @reservation.talent_id = @talent.id
-    @reservation.save
+    if @reservation.save
+      redirect_to talent_reservation_path(@talent.id, @reservation.id)
+    else
+      render 'talents/show'
+    end
   end
 
   def edit
