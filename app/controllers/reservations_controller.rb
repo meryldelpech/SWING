@@ -1,16 +1,18 @@
 class ReservationsController < ApplicationController
-  def index_talent
-    @reservations = Reservation.all
+  def index_client
+    @client_reservations = current_user.reservations
   end
 
-  def index_client
-    @reservations = Reservation.all
+  def index_talent
+    @talent_reservations = current_user.talents_reservations
   end
 
   def show
+    @reservation = Reservation.find(params[:id])
   end
 
   def new
+    #formulaire mis dans la /talents/show
   end
 
   def create
