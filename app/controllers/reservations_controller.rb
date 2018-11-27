@@ -1,5 +1,9 @@
 class ReservationsController < ApplicationController
-  def index
+  def index_talent
+    @reservations = Reservation.all
+  end
+
+  def index_client
     @reservations = Reservation.all
   end
 
@@ -14,8 +18,10 @@ class ReservationsController < ApplicationController
     @talent = Talent.find(params[:talent_id])
     @reservation.talent_id = @talent.id
     if @reservation.save
+      flash[:notice] = "la reservation a bien été créée"
       redirect_to talent_reservation_path(@talent.id, @reservation.id)
     else
+      flash[:alert] = "un problème est survenu"
       render 'talents/show'
     end
   end
