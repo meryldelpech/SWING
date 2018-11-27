@@ -3,6 +3,7 @@ class TalentsController < ApplicationController
   end
 
   def show
+    @talent = Talent.find(params[:id])
   end
 
   def new
@@ -34,3 +35,5 @@ class TalentsController < ApplicationController
     params.require(:talent).permit(:instrument, :experience, :price, :user_id)
   end
 end
+
+
