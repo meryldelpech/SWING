@@ -1,7 +1,16 @@
-<h1>Talents#show</h1>
 <div class="container">
-<%= @talent.user.first_name %>
-<%= @talent.instrument %>
-<p>(3 stars)</p>
-<%= @talent.user.description %>
+  <p><%= @talent.price %></p>
+  <%= @talent.user.first_name %>
+  <%= @talent.instrument %>
+  <p>(3 stars)</p>
+  <%= @talent.user.description %>
 </div>
+
+
+<p>Booking dates & hours</p>
+<%= simple_form_for [@talent, @reservation] do |f| %>
+  <%= f.input :date %>
+  <%= f.input :sono, as: :check_boxes, collection: ["I provide the sound material"] %>
+  <%= f.submit "Book", class: "btn btn-primary" %>
+  <%= f.button :button, "Reset", type: "reset", class: "btn-outline-secondary" %>
+<% end %>
