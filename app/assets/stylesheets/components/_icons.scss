@@ -1,0 +1,10 @@
+#avatar_man {
+  width: 48px;
+  fill: black;
+  transition: fill .5s;
+  transition: width .5s;
+  &:hover {
+    fill: red;
+    width: 72px;
+  }
+}
