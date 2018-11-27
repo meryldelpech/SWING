@@ -1,18 +1,30 @@
+<div class="section-user">
 <section id="user">
-  <%= current_user.email %>
-  <div width="72px">
-  <%= show_svg('avatar_man.svg') %>
-  </div>
+
+  <section class="user-picture"
+    style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+    url('<%= cl_image_path Talent.last.photo, height: 300, width: 400, crop: :fill %>')">
+    <%= current_user.email %>
+    <div width="72px">
+      <%= show_svg('avatar_man.svg') %>
+    </div>
+  </section>
+
+  <section class="user-descritpion">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis animi cupiditate deserunt ducimus veritatis, nostrum. Illum, consectetur, debitis iure aliquam dolorem id alias, ea incidunt reprehenderit, aperiam nesciunt aspernatur magnam! ipsum dolor sit amet, consectetur adipisicing elit. A eos laboriosam saepe, dolores nisi odit maxime illo eligendi neque laudantium totam, est sapiente atque adipisci fugit. Mollitia nostrum quam odit.</p>
+  </section>
 </section>
 
 <section id="add-a-talent">
 <h1>Add a new talent</h1>
 
-
   <%= simple_form_for [@talent] do |f| %>
     <%= f.input :instrument %>
     <%= f.input :experience %>
     <%= f.input :price %>
+    <%= f.input :photo %>
+    <%= f.input :photo_cache, as: :hidden %>
     <%= f.submit "add a talent" %>
   <% end %>
 </section>
+</div>
