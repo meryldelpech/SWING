@@ -2,17 +2,24 @@
   <!-- Logo -->
 
 
-  <div class="navbar-wagon-left hidden-xs hidden-sm">
-    <%= form_tag({controller: "talents", action: "index"}, method: "get", class: "form-inline") do %>
-      <%= text_field_tag 'who', nil, placeholder: 'instrument', class:'form-input' %>
-      <%= text_field_tag 'where', nil, placeholder: 'location', class:'form-input' %>
-      <%= submit_tag "Search", class:"form-search" %>
-    <% end %>
-  </div>
+  <%# if signed_in? %>
+    <div class="navbar-wagon-left hidden-xs hidden-sm">
+      <%= form_tag(talents_path, method: "get", class: "form-inline") do %>
+        <%= text_field_tag 'who', nil, placeholder: 'instrument', class:'form-input' %>
+        <%= text_field_tag 'where', nil, placeholder: 'location', class:'form-input' %>
+        <%= submit_tag "Search", class:"form-search" %>
+      <% end %>
+    </div>
+  <%# end %>
 
  <div class="navbar-wagon-right hidden-xs hidden-sm">
-   <%= link_to "Inscription", new_user_registration_path, class: "btn navbar-btn" %>
-   <%= link_to "Connexion", new_user_session_path, class: "btn navbar-btn" %>
+  <% if user_signed_in? %>
+    <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "btn navbar-btn" %>
+  <% else %>
+    <%= link_to "Inscription", new_user_registration_path, class: "btn navbar-btn" %>
+    <%= link_to "Connexion", new_user_session_path, class: "btn navbar-btn" %>
+  <% end %>
+
  </div>
 
 </div>
