@@ -3,6 +3,8 @@ class TalentsController < ApplicationController
   end
 
   def show
+    @talent = Talent.find(params[:id])
+    @reservation = Reservation.new
   end
 
   def new
