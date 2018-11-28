@@ -24,9 +24,10 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
     @talent = Talent.find(params[:talent_id])
     @reservation.talent_id = @talent.id
+    @reservation.client = current_user
     if @reservation.save
       flash[:notice] = "la reservation a bien été créée"
-      redirect_to talent_reservation_path(@talent.id, @reservation.id)
+      redirect_to reservation_path(@reservation)
     else
       flash[:alert] = "un problème est survenu"
       render 'talents/show'
