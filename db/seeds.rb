@@ -6,8 +6,8 @@ Talent.destroy_all
 User.destroy_all
 
 puts 'Creating users...'
-users_attributes = [
-  {
+
+matthieu = User.create!(
     first_name:   'Matthieu',
     last_name:   'James',
     description:  'I am a trompetist since I can breathe!',
@@ -17,20 +17,24 @@ users_attributes = [
     password: 'matthieujames',
     password_confirmation: 'matthieujames',
     photo: 'https://res.cloudinary.com/dhp5qp6ol/image/upload/v1543402082/gd2nzfw1xqmxfy87uk7c.jpg'
-  },
-  {
-    first_name:   'Marta',
-    last_name:   'Loca',
-    description:  'I am a trompetist since I can breathe!',
-    date_of_birth: Date.new(2002,2,3),
-    phone_number: '0608524332',
-    email: 'marta.loca@gmail.com',
-    password: 'matthieujames',
-    password_confirmation: 'matthieujames',
-    photo: 'https://res.cloudinary.com/dhp5qp6ol/image/upload/v1543402082/gd2nzfw1xqmxfy87uk7c.jpg'
-  }
-]
-User.create!(users_attributes)
+  )
+
+matthieu.remote_photo_url = 'https://res.cloudinary.com/dhp5qp6ol/image/upload/v1543402082/gd2nzfw1xqmxfy87uk7c.jpg'
+matthieu.save
+
+marta = User.create!(
+  first_name:   'Marta',
+  last_name:   'Loca',
+  description:  'I am a trompetist since I can breathe!',
+  date_of_birth: Date.new(2002,2,3),
+  phone_number: '0608524332',
+  email: 'marta.loca@gmail.com',
+  password: 'matthieujames',
+  password_confirmation: 'matthieujames',
+)
+
+marta.remote_photo_url = 'https://res.cloudinary.com/dhp5qp6ol/image/upload/v1543402082/gd2nzfw1xqmxfy87uk7c.jpg'
+marta.save
 
 puts "creating client..."
 client = User.create!(
@@ -42,17 +46,20 @@ client = User.create!(
   email: 'colette.coco@gmail.com',
   password: '12345678',
   password_confirmation: '12345678',
-  photo: open('https://res.cloudinary.com/dhp5qp6ol/image/upload/v1543402082/gd2nzfw1xqmxfy87uk7c.jpg')
-  )
+)
+
+client.remote_photo_url = 'https://res.cloudinary.com/dhp5qp6ol/image/upload/v1543402082/gd2nzfw1xqmxfy87uk7c.jpg'
+client.save
 
 10.times do
-  Talent.create(
+  talent = Talent.create(
     instrument:   Faker::Music.instrument,
     experience:   Faker::Music.genre,
     price:  Faker::Number.between(10, 500),
     user: User.all.sample,
-    photo: 'https://res.cloudinary.com/dhp5qp6ol/image/upload/v1543402082/gd2nzfw1xqmxfy87uk7c.jpg'
-    )
+  )
+  talent.remote_photo_url = 'https://res.cloudinary.com/dhp5qp6ol/image/upload/v1543402082/gd2nzfw1xqmxfy87uk7c.jpg'
+  talent.save
 end
 
 puts "creating reservations..."
