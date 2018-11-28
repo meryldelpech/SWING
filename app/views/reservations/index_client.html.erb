@@ -2,8 +2,8 @@
   <h1>My bookings of musicians</h1>
 
   <div class="tabs over-to-come">
-    <a href="#" class="tab active">To come</a>
     <a href="#" class="tab">Over</a>
+    <a href="#" class="tab active">To come</a>
   </div>
 
       <ul>
@@ -21,6 +21,13 @@
             </div>
             <div class='resa-title'>
               <p><%= reservation.title %></p>
+            </div>
+            <div class="status">
+              <p>
+                <%= reservation.status %></p>
+            </div>
+            <div>
+              <%= link_to "See details", reservation_path(reservation) %>
             </div>
             <div>
               <p><%= link_to "voir la facture" %></p>

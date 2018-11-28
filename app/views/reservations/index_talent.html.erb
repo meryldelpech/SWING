@@ -2,8 +2,12 @@
   <h1>My bookings as talent</h1>
 
   <div class="tabs over-to-come">
-    <a href="#" class="tab active">To come</a>
     <a href="#" class="tab">Over</a>
+    <a href="#" class="tab active">To come</a>
+  </div>
+
+  <div>
+    <%= link_to "add a talent", new_talent_path %>
   </div>
 
       <ul>
@@ -18,6 +22,7 @@
             </div>
             <div class="resa-instru">
               <p><%= reservation.talent.instrument %></p>
+              <p><%= link_to "See details", reservation_path(reservation) %> </p>
             </div>
             <div class="resa-dates">
               <p><%= reservation.begin_date %> - <%= reservation.end_date %></p>
