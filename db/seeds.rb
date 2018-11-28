@@ -60,7 +60,6 @@ Reservation.create!(
   talent_id: Talent.all.sample.id
   begin_date: DateTime.now - 5.days,
   end_date: DateTime.now
-
   )
 
 puts "seed finished!"
