@@ -1,36 +1,45 @@
 <div class="table-booking">
   <h1>My bookings of musicians</h1>
 
-  <div class="tabs over-to-come">
-    <a href="#" class="tab">Over</a>
-    <a href="#" class="tab active">To come</a>
+  <div class="tabs-over-to-come">
+    <a href="#" class="tab">
+      <p>Passed</p>
+    </a>
+    <a href="#" class="tab active">
+      <p>Futures</p>
+    </a>
   </div>
 
-      <ul>
+      <ul class="container">
         <% @reservations.each do |reservation| %>
-          <li>
-            <img src="https://via.placeholder.com/60" alt="" class="resa-avatar">
+          <li class="card-resa-talents">
+            <img src="https://via.placeholder.com/60" alt="">
             <div>
-              <p><%= reservation.talent.instrument %></p>
+              <p><%= reservation.talent.instrument.upcase %></p>
             </div>
             <div>
-              <p><%= reservation.talent_user.first_name %> <%= reservation.talent_user.last_name %></p>
+              <p>Musician : <%= reservation.talent_user.first_name %> <%= reservation.talent_user.last_name %></p>
             </div>
             <div>
-              <p><%= reservation.begin_date %> - <%= reservation.end_date %></p>
+              <p>Begin :<%= reservation.begin_date %></p>
+              <p>End : <%= reservation.end_date %></p>
             </div>
             <div class='resa-title'>
               <p><%= reservation.title %></p>
             </div>
             <div class="status">
-              <p>
-                <%= reservation.status %></p>
+              <p>Status : <%= reservation.status %></p>
+            </div>
+            <div>
+              <p>Coût total : <%= (reservation.total_price + reservation.fees).round %> €</p>
             </div>
             <div>
               <%= link_to "See details", reservation_path(reservation) %>
             </div>
             <div>
-              <p><%= link_to "voir la facture" %></p>
+              <% if reservation.accepted? %>
+                <p><%= link_to "See invoice" %></p>
+              <% end %>
             </div>
           </li>
         <% end %>

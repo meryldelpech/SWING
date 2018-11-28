@@ -56,7 +56,7 @@ client = User.create!(
 end
 
 puts "creating reservations..."
-Reservation.create!(
+  Reservation.create!(
   duration: 6,
   location: "Paris",
   title: "Pianiste pour la Fête de la Musique",
