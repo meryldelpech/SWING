@@ -1,16 +1,23 @@
 class ReservationsController < ApplicationController
-  def index_talent
-    @reservations = Reservation.all
+  def index_client
+    @reservations = current_user.reservations
   end
 
-  def index_client
-    @reservations = Reservation.all
+  def index_talent
+    @reservations = current_user.talents_reservations
   end
 
   def show
+    @reservation = Reservation.find(params[:id])
+    if current_user == @reservation.client
+      @user = @reservation.talent_user
+    else
+      @user = @reservation.client
+    end
   end
 
   def new
+    #formulaire mis dans la /talents/show
   end
 
   def create
@@ -37,7 +44,7 @@ class ReservationsController < ApplicationController
 
   private
   def reservation_params
-    params.require(:reservation).permit(:duration, :location, :title)
+    params.require(:reservation).permit(:duration, :location, :title, :begin_date, :end_date, :status, :total_price, :fees)
 
   end
 end
