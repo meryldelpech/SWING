@@ -10,6 +10,9 @@ class Reservation < ApplicationRecord
   before_create :set_status
   before_save :set_total_price_and_fees
 
+  def total_hours
+    (self.end_date.to_time - self.begin_date.to_time) / 1.hours
+  end
 
   private
 
@@ -18,7 +21,6 @@ class Reservation < ApplicationRecord
   end
 
   def set_total_price_and_fees
-    total_hours = (self.end_date.to_time - self.begin_date.to_time) / 1.hours
     self.total_price = total_hours * self.talent.price
     self.fees = self.total_price * 20 / 100
   end
