@@ -1,45 +1,17 @@
-
-
-
-<div>
-  <h1>Booking</h1>
-  <%= simple_form_for [@talent, @reservation] do |f| %>
-    <div id="book-a-talent">
-      <div class="row">
-        <div class='col-sm-6 col-sm-offset-3'>
-          <div class="form-group">
-            <!-- <div class='input-group date' id='datetimepicker'>
-              <%#= f.input :appointment, label: false, placeholder: "Select the time and hours", class: "form-control" %>
-              <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
-              </span>
-            </div>
-          </div> -->
-         <!--  <div class="form-group">
-            <%#= f.input :sono, as: :check_boxes, collection: ["I provide the sound material"] %>
-          </div>
-          <div class="form-group">
-            <%#= f.submit "Book", class: "btn btn-primary" %>
-            <%#= f.button :button, "Reset", type: "reset", class: "btn-outline-secondary" %>
-          </div> -->
-        </div>
-      </div>
-    </div>
-  <% end %>
-
-
 <div class="section-user">
 <section id="user">
 
   <section class="user-picture"
     style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2));">
-    <%#= current_user.email %>
+
     <div width="72px">
       <%= show_svg('avatar_man.svg') %>
     </div>
   </section>
 
   <section class="user-descritpion">
-    <h1><%= @talent.user.first_name %></h1>
+
+    <h2><%= @talent.user.first_name %></h2>
     <p><%= @talent.instrument %></p>
     <p>(3 stars)</p>
     <p><%= @talent.user.description %></p>
@@ -53,6 +25,22 @@
     <% end %>
   </p>
   </section>
+
+  <section id="add-a-talent">
+  <h2>Booking</h2>
+  </section>
 </section>
 
+</div>
+
+<div>
+  <h1>Booking</h1>
+  <%= simple_form_for [@talent, @reservation] do |f| %>
+    <%= f.input :location %>
+    <%= f.input :title %>
+    <%= f.input :begin_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+    <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+    <%= f.button :submit, "Book", class: "btn btn-primary" %>
+    <%= f.button :button, "Reset", type: "reset", class: "btn-outline-secondary" %>
+  <% end %>
 </div>
