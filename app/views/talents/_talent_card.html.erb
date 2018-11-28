@@ -6,14 +6,19 @@
     <ul class= "card-talents">
       <!-- pour chaque talent de user on crée un li -->
       <% talented_user.talents.each do |talent| %>
+
         <li>
+          <%= talent.user.first_name %> <br>
           <%= talent.instrument %>
           <%= talent.experience %>
           <%= talent.price %> €
         </li>
       <% end %>
+
     </ul>
-  </div>  <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+  </div>
+  <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+
   <a class="card-link" href="#" ></a>
 </div>
 
