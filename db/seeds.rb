@@ -16,7 +16,7 @@ matthieu = User.create!(
     email: 'matthieu.james@gmail.com',
     password: 'matthieujames',
     password_confirmation: 'matthieujames',
-    photo: 'https://res.cloudinary.com/dhp5qp6ol/image/upload/v1543402082/gd2nzfw1xqmxfy87uk7c.jpg'
+    photo: 'https://images.unsplash.com/photo-1511766852612-68b47d946def?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=cfba3371921186f9ce33a16737650a43&auto=format&fit=crop&w=1050&q=80'
   )
 
 matthieu.remote_photo_url = 'https://images.unsplash.com/photo-1511766852612-68b47d946def?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=cfba3371921186f9ce33a16737650a43&auto=format&fit=crop&w=1050&q=80'
