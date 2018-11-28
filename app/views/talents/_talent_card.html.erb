@@ -8,14 +8,20 @@
       <% talented_user.talents.each do |talent| %>
 
         <li>
+          <%= talent.user.first_name %> <br>
           <%= talent.instrument %>
           <%= talent.experience %>
           <%= talent.price %> €
         </li>
       <% end %>
+
     </ul>
   </div>
-  <img class="card-user" src="<%= cl_image_path current_user.photo %>">
+  <% if current_user != nil %>
+  <img class="card-user">
+  <% else %>
+   <img class="card-user">
+  <% end %>
   <a class="card-link" href="#" ></a>
 </div>
 
