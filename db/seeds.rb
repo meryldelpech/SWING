@@ -55,7 +55,9 @@ Reservation.create!(
   location: "Paris",
   title: "Pianiste pour la Fête de la Musique",
   user_id: client.id,
-  talent_id: Talent.all.sample.id
+  talent_id: Talent.all.sample.id,
+  begin_date: DateTime.now - 2.days,r
+  end_date: DateTime.now
   )
 
 puts "seed finished!"
