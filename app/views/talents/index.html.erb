@@ -1,3 +1,7 @@
 <h1>Welcome on Swing</h1>
 
+<% @talents.each do |talent| %>
+  <%= render "talent_card", talent: talent %>
+<% end %>
+
 
