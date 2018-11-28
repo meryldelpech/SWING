@@ -1,41 +1,54 @@
-<div>
-  <div>
-    <h1>Booking recap</h1>
-    <h2><%= @reservation.title %></h2>
-    <p>status : <%= @reservation.status %></p>
-  </div>
-  <div>
-    <p>Dates : <%= @reservation.begin_date %> | <%= @reservation.end_date %> </p>
-    <p>Music : <%= @reservation.talent.instrument %></p>
-    <p>Paiements :</p>
-      <ul>
-        <li>
-          <p><%= @reservation.total_hours.round %>heures x <%= @reservation.talent.price %> € : <%= @reservation.total_price.round %> €</p>
-          <p>Frais de service : <%= @reservation.fees.round %> € </p>
-          <% if current_user == @reservation.talent_user %>
-            <p>TOTAL : <%= (@reservation.total_price - @reservation.fees).round %> €</p>
-          <% else %>
-            <p>TOTAL : <%= (@reservation.total_price + @reservation.fees).round %> €</p>
-          <% end %>
-        </li>
-      </ul>
-    <p>Infos pratiques du musicien: <%= @reservation.talent.infos %></p>
-    <% if @user = @reservation.client %>
-      <p><%= link_to "voir la facture" %></p>
-    <% end %>
-    <div>
-      <% if current_user == @reservation.talent_user && @reservation.pending? %>
-        <%= simple_form_for @reservation do |f| %>
-          <%= f.input :status, collection: ["accepted", "declined"], placeholder: "accept or decline the booking" %>
-          <%= f.submit "confirm" %>
-        <% end %>
-      <% end %>
-    </div>
-</div>
+<div class="section-user">
+  <section id="user">
 
-<div>
+    <section class="user-descritpion">
+      <h1>Booking recap</h1>
+      <h2><%= @reservation.title %></h2>
+      <p>status : <%= @reservation.status %></p>
+      <div>
+        <p>Dates : <%= @reservation.begin_date %> | <%= @reservation.end_date %> </p>
+        <p>Music : <%= @reservation.talent.instrument %></p>
+        <p>Paiements :</p>
+          <ul>
+            <li>
+              <p><%= @reservation.total_hours.round %>heures x <%= @reservation.talent.price %> € : <%= @reservation.total_price.round %> €</p>
+              <p>Frais de service : <%= @reservation.fees.round %> € </p>
+              <% if current_user == @reservation.talent_user %>
+                <p>TOTAL : <%= (@reservation.total_price - @reservation.fees).round %> €</p>
+              <% else %>
+                <p>TOTAL : <%= (@reservation.total_price + @reservation.fees).round %> €</p>
+              <% end %>
+            </li>
+          </ul>
+        <p>Infos pratiques du musicien: <%= @reservation.talent.infos %></p>
+        <% if @user = @reservation.client && @reservation.accepted? %>
+          <p><%= link_to "See invoice" %></p>
+        <% end %>
+        <% if @user = @reservation.client %>
+          <p><%= link_to "Back to my reservations", index_client_reservations_path %></p>
+        <% elsif @user = @reservation.talent_user %>
+          <p><%= link_to "Back to my reservations", index_talent_reservations_path %></p>
+        <% end %>
+        <div>
+          <% if current_user == @reservation.talent_user && @reservation.pending? %>
+            <%= simple_form_for @reservation do |f| %>
+              <%= f.input :status, collection: ["accepted", "declined"], placeholder: "accept or decline the booking" %>
+              <%= f.submit "confirm" %>
+            <% end %>
+          <% end %>
+        </div>
+    </div>
+  </section>
+
+</section>
+
+
+<section id="add-a-talent">
   <img src="https://via.placeholder.com/60" alt="">
   <p><%= @user.first_name %> <%= @user.last_name %></p>
   <p><%= @user.description %></p>
   <p>Contact <%= @user.first_name %>: <%= @user.phone_number %></p>
+</section>
+
 </div>
+
