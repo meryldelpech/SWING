@@ -52,12 +52,12 @@ client = User.create!(
 end
 
 puts "creating reservations..."
-Reservation.create!(
+  Reservation.create!(
   duration: 6,
   location: "Paris",
   title: "Pianiste pour la Fête de la Musique",
   user_id: client.id,
-  talent_id: Talent.all.sample.id
+  talent_id: Talent.all.sample.id,
   begin_date: DateTime.now - 5.days,
   end_date: DateTime.now
   )
