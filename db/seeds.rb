@@ -19,7 +19,7 @@ matthieu = User.create!(
     photo: 'https://res.cloudinary.com/dhp5qp6ol/image/upload/v1543402082/gd2nzfw1xqmxfy87uk7c.jpg'
   )
 
-matthieu.remote_photo_url = 'https://res.cloudinary.com/dhp5qp6ol/image/upload/v1543402082/gd2nzfw1xqmxfy87uk7c.jpg'
+matthieu.remote_photo_url = 'https://images.unsplash.com/photo-1511766852612-68b47d946def?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=cfba3371921186f9ce33a16737650a43&auto=format&fit=crop&w=1050&q=80'
 matthieu.save
 
 marta = User.create!(
@@ -33,7 +33,7 @@ marta = User.create!(
   password_confirmation: 'matthieujames',
 )
 
-marta.remote_photo_url = 'https://res.cloudinary.com/dhp5qp6ol/image/upload/v1543402082/gd2nzfw1xqmxfy87uk7c.jpg'
+marta.remote_photo_url = 'https://images.unsplash.com/photo-1511869805211-4ff749e15f73?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=77a521668dce5627bb8a92f239959556&auto=format&fit=crop&w=1050&q=80'
 marta.save
 
 puts "creating client..."
