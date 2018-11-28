@@ -5,7 +5,7 @@
   <%# if signed_in? %>
     <div class="navbar-wagon-left hidden-xs hidden-sm">
       <%= form_tag(talents_path, method: "get", class: "form-inline") do %>
-        <%= text_field_tag 'who', nil, placeholder: 'instrument', class:'form-input' %>
+        <%= text_field_tag 'instrument', nil, placeholder: 'instrument', class:'form-input' %>
         <%= text_field_tag 'where', nil, placeholder: 'location', class:'form-input' %>
         <%= submit_tag "Search", class:"form-search" %>
       <% end %>

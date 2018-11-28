@@ -1,6 +1,4 @@
-html {
-  // background: $primary;
-}
+
 
 .section-user {
   background: $primary;
@@ -30,5 +28,8 @@ html {
   }
   .alert {
     display: none;
+  }
+  #add-a-talent {
+    color: white;
   }
 }
