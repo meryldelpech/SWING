@@ -1,6 +1,8 @@
+
 .section-user {
   background: $primary;
   color: rgba(255,255,255,1);
+
   display: flex;
   align-items: center;
   #user {
@@ -25,5 +27,8 @@
   }
   .alert {
     display: none;
+  }
+  #add-a-talent {
+    color: white;
   }
 }

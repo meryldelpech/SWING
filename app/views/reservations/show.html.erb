@@ -24,7 +24,7 @@
       <p><%= link_to "voir la facture" %></p>
     <% end %>
     <div>
-      <% if current_user == @reservation.talent_user %>
+      <% if current_user == @reservation.talent_user && @reservation.pending? %>
         <%= simple_form_for @reservation do |f| %>
           <%= f.input :status, collection: ["accepted", "declined"], placeholder: "accept or decline the booking" %>
           <%= f.submit "confirm" %>
