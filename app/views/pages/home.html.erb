@@ -1,4 +1,7 @@
-<h1>Swing Home Page</h1>
+<%= render 'shared/banner' %>
+
+
+<h2> Popular musicians</h2>
 
 <div class="container">
   <div class="row">
@@ -6,7 +9,7 @@
   <!-- pour chaque user qui a au moins un talent on lui crée une card qui est située dans un partial dans le dossier views/talents -->
     <% @talented_users.each do |talented_user| %>
       <div class="col-xs-12 col-sm-4">
-        <%= render 'talents/talent_card', talented_user: talented_user %>
+        <%= render 'talents/user_talent_card', talented_user: talented_user %>
       </div>
     <% end %>
   </div>

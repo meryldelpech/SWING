@@ -1,0 +1,18 @@
+<div class="card" style="background-image: linear-gradient(rgba(13,65,91, 0.9), rgba(13,65,91, 0.7)">
+  <div class="card-category">Expert</div>
+  <div class="card-description">
+    <ul class= "card-talents">
+      <!-- pour chaque talent de user on crée un li -->
+      <% talented_user.talents.each do |talent| %>
+        <li>
+          <%= talent.instrument %>
+          <%= talent.experience %>
+          <%= talent.price %> €
+          <%= link_to "", talent_path(talent), class: "card-link" %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <%= cl_image_tag talented_user.photo, class: "card-user" %>
+</div>
+
