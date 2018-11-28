@@ -1,6 +1,8 @@
 require 'faker'
 
 puts 'Removing users...'
+Reservation.destroy_all
+Talent.destroy_all
 User.destroy_all
 
 puts 'Creating users...'
@@ -13,7 +15,8 @@ users_attributes = [
     phone_number: '0608524335',
     email: 'matthieu.james@gmail.com',
     password: 'matthieujames',
-    password_confirmation: 'matthieujames'
+    password_confirmation: 'matthieujames',
+    photo: 'https://res.cloudinary.com/dhp5qp6ol/image/upload/v1543402082/gd2nzfw1xqmxfy87uk7c.jpg'
   },
   {
     first_name:   'Marta',
@@ -23,7 +26,8 @@ users_attributes = [
     phone_number: '0608524332',
     email: 'marta.loca@gmail.com',
     password: 'matthieujames',
-    password_confirmation: 'matthieujames'
+    password_confirmation: 'matthieujames',
+    photo: 'https://res.cloudinary.com/dhp5qp6ol/image/upload/v1543402082/gd2nzfw1xqmxfy87uk7c.jpg'
   }
 ]
 User.create!(users_attributes)
@@ -37,7 +41,8 @@ client = User.create!(
   phone_number: '0608524332',
   email: 'colette.coco@gmail.com',
   password: '12345678',
-  password_confirmation: '12345678'
+  password_confirmation: '12345678',
+  photo: open('https://res.cloudinary.com/dhp5qp6ol/image/upload/v1543402082/gd2nzfw1xqmxfy87uk7c.jpg')
   )
 
 10.times do
@@ -45,7 +50,8 @@ client = User.create!(
     instrument:   Faker::Music.instrument,
     experience:   Faker::Music.genre,
     price:  Faker::Number.between(10, 500),
-    user: User.all.sample
+    user: User.all.sample,
+    photo: 'https://res.cloudinary.com/dhp5qp6ol/image/upload/v1543402082/gd2nzfw1xqmxfy87uk7c.jpg'
     )
 end
 
@@ -55,7 +61,9 @@ Reservation.create!(
   location: "Paris",
   title: "Pianiste pour la Fête de la Musique",
   user_id: client.id,
-  talent_id: Talent.all.sample.id
+  talent_id: Talent.all.sample.id,
+  begin_date: DateTime.now - 5.days,
+  end_date: DateTime.now
   )
 
 puts "seed finished!"
