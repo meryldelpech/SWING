@@ -1,7 +1,7 @@
 class TalentsController < ApplicationController
 
   def index
-    @talents = Talent.where(instrument: params[:who])
+    @talents = Talent.where("instrument ILIKE '#{params[:instrument]}'")
   end
 
   def show
