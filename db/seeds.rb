@@ -1,6 +1,8 @@
 require 'faker'
 
 puts 'Removing users...'
+Reservation.destroy_all
+Talent.destroy_all
 User.destroy_all
 
 puts 'Creating users...'
@@ -55,8 +57,8 @@ Reservation.create!(
   location: "Paris",
   title: "Pianiste pour la Fête de la Musique",
   user_id: client.id,
-  talent_id: Talent.all.sample.id,
-  begin_date: DateTime.now - 2.days,r
+  talent_id: Talent.all.sample.id
+  begin_date: DateTime.now - 5.days,
   end_date: DateTime.now
   )
 
