@@ -37,6 +37,7 @@ class ReservationsController < ApplicationController
   end
 
   def update
+
   end
 
   def destroy
