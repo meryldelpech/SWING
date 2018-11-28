@@ -1,17 +1,17 @@
-<!--
-  <p><%= @talent.user.first_name %></p>
+
+<!--   <p><%= @talent.user.first_name %></p>
   <p><%= @talent.instrument %></p>
   <p>(3 stars)</p>
   <p><%= @talent.user.description %></p>
   <p><%= @talent.price %></p>
   <h1>Last events</h1>
-  <p><% if @reservation.title? %>
+  <p><#% if @reservation.title? %>
     <%= @reservation.title %>
-  <% else %>
-  <%= "This person didn't join any past event" %>
-   <% end %>
+  <#% else %>
+  <%#= "This person didn't join any past event" %>
+   <#% end %>
   </p>
-
+ -->
 
 
 <div>
@@ -22,14 +22,21 @@
         <div class='col-sm-6 col-sm-offset-3'>
           <div class="form-group">
             <div class='input-group date' id='datetimepicker'>
-              <%= f.input :appointment, label: false, placeholder: "Select the time and hours", class: "form-control" %>
+              <%= f.input :end_date, as: :text, label: false, placeholder: "Select the time and hours", class: "form-control" %>
               <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
               </span>
             </div>
           </div>
           <div class="form-group">
-            <%#= f.input :sono, as: :check_boxes, collection: ["I provide the sound material"] %>
+            <div class='input-group date' id='datetimepicker'>
+              <%= f.input :end_date, label: false, placeholder: "Select the time and hours", class: "form-control" %>
+              <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+              </span>
+            </div>
           </div>
+<!--           <div class="form-group">
+            <%#= f.input :sono, as: :check_boxes, collection: ["I provide the sound material"] %>
+          </div> -->
           <div class="form-group">
             <%= f.submit "Book", class: "btn btn-primary" %>
             <%= f.button :button, "Reset", type: "reset", class: "btn-outline-secondary" %>
