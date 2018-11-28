@@ -3,14 +3,15 @@
 
   <section class="user-picture"
     style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2));">
-    <%= current_user.email %>
+
     <div width="72px">
       <%= show_svg('avatar_man.svg') %>
     </div>
   </section>
 
   <section class="user-descritpion">
-    <h1><%= @talent.user.first_name %></h1>
+
+    <h2><%= @talent.user.first_name %></h2>
     <p><%= @talent.instrument %></p>
     <p>(3 stars)</p>
     <p><%= @talent.user.description %></p>
@@ -23,6 +24,10 @@
       <%= "This person didn't join any past event" %>
     <% end %>
   </p>
+  </section>
+
+  <section id="add-a-talent">
+  <h2>Booking</h2>
   </section>
 </section>
 
