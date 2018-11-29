@@ -2,7 +2,7 @@
 <section id="user">
 
   <section class="user-picture"
-    style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2));">
+    style="background-image: url('<%= cl_image_path @talent.user.photo, crop: :fill %>')">
 
     <div width="72px">
       <%= show_svg('avatar_man.svg') %>
@@ -28,13 +28,7 @@
 
   <section id="add-a-talent">
   <h2>Booking</h2>
-  </section>
-</section>
-
-</div>
-
 <div>
-  <h1>Booking</h1>
   <%= simple_form_for [@talent, @reservation] do |f| %>
     <%= f.input :location %>
     <%= f.input :title %>
@@ -44,3 +38,8 @@
     <%= f.button :button, "Reset", type: "reset", class: "btn-outline-secondary" %>
   <% end %>
 </div>
+  </section>
+</section>
+
+</div>
+
