@@ -10,7 +10,7 @@
       <% @talented_users.each do |talented_user| %>
         <div class="col-xs-6 col-sm-4">
           <div class="card" style="background-image: linear-gradient(rgba(254,199,97, 0.9), rgba(254,199,97,0.7)">
-              <%= link_to "", talent_path(talented_user), class: "card-link" %>
+              <%= link_to "", profile_path(talented_user), class: "card-link" %>
                 <div class="card-description">
                   <ul class= "card-talents">
                     <%= talented_user.first_name.upcase %>
