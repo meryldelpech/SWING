@@ -1,45 +1,43 @@
-<div class="section-user">
-<section id="user">
-
-  <section class="user-picture"
-    style="background-image: url('<%= cl_image_path @talent.user.photo, crop: :fill %>')">
-
-    <div width="72px">
-      <%= show_svg('avatar_man.svg') %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <div>
+        <div class="talent-pic" style="background-image: url('<%= cl_image_path @talent.user.photo, crop: :fill %>')">
+            <div width="72px">
+              <%= show_svg('avatar_man.svg') %>
+            </div>
+        </div>
+      </div>
     </div>
-  </section>
-
-  <section class="user-descritpion">
-
-    <h2><%= @talent.user.first_name %></h2>
-    <p><%= @talent.instrument %></p>
-    <p>(3 stars)</p>
-    <p><%= @talent.user.description %></p>
-    <p><%= @talent.price %></p>
-    <h3>Last events</h3>
-    <p>
-      <% if @reservation.title? %>
-      <strong><%= @reservation.title %></strong>
-    <% else %>
-      <%= "This person didn't join any past event" %>
-    <% end %>
-  </p>
-  </section>
-
-  <section id="add-a-talent">
-  <h2>Booking</h2>
-<div>
-  <%= simple_form_for [@talent, @reservation] do |f| %>
-    <%= f.input :location %>
-    <%= f.input :title %>
-    <%= f.input :begin_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-    <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-    <%= f.button :submit, "Book", class: "btn btn-primary" %>
-    <%= f.button :button, "Reset", type: "reset", class: "btn-outline-secondary" %>
-  <% end %>
+    <div class="col-sm-4">
+      <div class="user-details">
+        <h2><%= @talent.user.first_name %></h2>
+        <p><%= @talent.instrument %></p>
+        <p>⭐️⭐️⭐️</p>
+        <p><%= @talent.user.description %></p>
+        <p><%= @talent.price %></p>
+        <h3>Last events</h3>
+        <p>
+         <% if @reservation.title? %>
+          <strong><%= @reservation.title %></strong>
+         <% else %>
+          <%= "This person didn't join any past event" %>
+         <% end %>
+        </p>
+    </div>
+    <div class="col-sm-4">
+      <div class="booking">
+        <div>
+          <%= simple_form_for [@talent, @reservation] do |f| %>
+            <%= f.input :location %>
+            <%= f.input :title %>
+            <%= f.input :begin_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+            <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+            <%= f.button :submit, "Book", class: "btn btn-primary" %>
+            <%= f.button :button, "Reset", type: "reset", class: "btn-outline-secondary" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-  </section>
-</section>
-
-</div>
-
