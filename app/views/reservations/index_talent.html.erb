@@ -1,9 +1,8 @@
+<div class="swing-container">
+  <h1>My bookings</h1>
 <div>
-    <%= link_to "add a talent", new_talent_path %>
+  <p><%= link_to "Back to my profile", new_talent_path %></p>
 </div>
-
-<div class="table-booking">
-  <h1>My bookings as talent</h1>
 
   <div class="tabs-over-to-come">
     <a href="#" class="tab">
@@ -18,33 +17,33 @@
   </div>
 
 
-      <ul class="resa-container">
-        <% @reservations.each do |reservation| %>
-          <li class="resa">
-            <img src="https://via.placeholder.com/60" alt="" class="resa-avatar">
-            <div class="resa-name">
-              <p><%= reservation.client.first_name %></p>
-            </div>
-            <div class="resa-title">
-              <p><%= reservation.title %></p>
-            </div>
-            <div class="resa-talent">
-              <p><%= reservation.talent.instrument %></p>
-            </div>
-            <div class="resa-date">
-              <p>Du : <%= nice_date(reservation.begin_date) %></p>
-              <p>Au : <%= nice_date(reservation.end_date) %></p>
-            </div >
-            <div class="resa-status">
-              <p><%= reservation.status %></p>
-              <p class="price">Gain : <%= (reservation.total_price - reservation.fees).round %> €</p>
-            </div>
-            <div class="resa-details">
-              <p><%= link_to "See details", reservation_path(reservation) %> </p>
-            </div>
-          </li>
-        <% end %>
+  <ul class="resa-container">
+    <% @reservations.each do |reservation| %>
+      <li class="resa">
+        <img src="https://via.placeholder.com/60" alt="" class="resa-avatar">
+        <div class="resa-name">
+          <p><%= reservation.client.first_name %></p>
+        </div>
+        <div class="resa-title">
+          <p><%= reservation.title %></p>
+        </div>
+        <div class="resa-talent">
+          <p><%= reservation.talent.instrument.upcase %></p>
+        </div>
+        <div class="resa-date">
+          <p>Du : <%= nice_date(reservation.begin_date) %></p>
+          <p>Au : <%= nice_date(reservation.end_date) %></p>
+        </div >
+        <div class="resa-status">
+          <p><%= reservation.status %></p>
+          <p class="price">Gain : <%= (reservation.total_price - reservation.fees).round %> €</p>
+        </div>
+        <div class="resa-details">
+          <p><%= link_to "See details", reservation_path(reservation) %> </p>
+        </div>
+      </li>
+    <% end %>
+  </ul>
 
-      </ul>
 </div>
 

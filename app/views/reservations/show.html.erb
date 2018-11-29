@@ -1,13 +1,18 @@
-<div class="section-user">
-  <section id="user">
+<div class="resa-page">
+  <div class="resa-left">
 
-    <section class="user-descritpion">
-      <h1>Booking recap</h1>
-      <h2><%= @reservation.title %></h2>
-      <p>status : <%= @reservation.status %></p>
-      <div>
-        <p>Dates : <%= @reservation.begin_date %> | <%= @reservation.end_date %> </p>
-        <p>Music : <%= @reservation.talent.instrument %></p>
+    <div>
+      <div class="title">
+        <h1>Reservation details</h1>
+        <p>status : <%= @reservation.status %></p>
+      </div>
+      <p class="resa-talent">Music : <%= @reservation.talent.instrument %></p>
+      <p class='resa-title'><%= @reservation.title %></p>
+       <div class="resa-name">
+        <p>Musician : <span><%= link_to reservation.talent_user.first_name %> <%= link_to reservation.talent_user.last_name %></span></p>
+      </div>
+        <p class="resa-date">Dates : <%= @reservation.begin_date %> | <%= @reservation.end_date %> </p>
+      <div class="paiements">
         <p>Paiements :</p>
           <ul>
             <li>
@@ -20,7 +25,7 @@
               <% end %>
             </li>
           </ul>
-        <p>Infos pratiques du musicien: <%= @reservation.talent.infos %></p>
+        <p class='resa-title'>Infos pratiques du musicien: <%= @reservation.talent.infos %></p>
         <% if @user = @reservation.client && @reservation.accepted? %>
           <p><%= link_to "See invoice" %></p>
         <% end %>
@@ -38,17 +43,26 @@
           <% end %>
         </div>
     </div>
-  </section>
 
-</section>
+    </div>
+  </div>
 
 
-<section id="add-a-talent">
-  <img src="https://via.placeholder.com/60" alt="">
-  <p><%= @user.first_name %> <%= @user.last_name %></p>
-  <p><%= @user.description %></p>
-  <p>Contact <%= @user.first_name %>: <%= @user.phone_number %></p>
-</section>
+
+  <div class="resa-right">
+    <div class="musician resa-contact">
+      <img src="https://via.placeholder.com/60" alt="" class="booking-musician-avatar">
+      <div class="resa-name">
+        <p><%= @user.first_name %> <%= @user.last_name %></p>
+      </div>
+      <div class="resa-description">
+        <p><%= @user.description %></p>
+      </div>
+      <div class="resa-name">
+        <p>Contact <%= @user.first_name %>: <%= @user.phone_number %></p>
+      </div>
+    </div>
+  </div>
 
 </div>
 
