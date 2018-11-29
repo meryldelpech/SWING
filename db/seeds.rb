@@ -59,7 +59,7 @@ client.save
     user: User.all.sample,
   )
   talent.remote_photo_url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Ambrose_Akinmusire_2011.jpg/1280px-Ambrose_Akinmusire_2011.jpg'
-  # talent.save
+  talent.save
 end
 
 puts "creating reservations..."
