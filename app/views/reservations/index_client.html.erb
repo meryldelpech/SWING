@@ -34,7 +34,7 @@
             <p>Du : <%= nice_date(reservation.begin_date) %></p>
             <p>Au : <%= nice_date(reservation.end_date) %></p>
           </div>
-          <div class="status">
+          <div class="resa-status">
             <br><br>
             <p>Status : <%= reservation.status %></p>
           </div>
@@ -44,7 +44,7 @@
           <div class="resa-details">
             <p><%= link_to "See details", reservation_path(reservation) %>
             <% if reservation.accepted? %>
-              <span><%= link_to "See invoice" %></span>
+              <span> | <%= link_to "See invoice" %></span>
             <% end %>
             </p>
           </div>

@@ -3,36 +3,43 @@
 
     <div>
       <div class="title">
-        <h1>Reservation details</h1>
-        <p>status : <%= @reservation.status %></p>
+        <h1 class="title-item">Reservation details</h1>
+        <p class="title-item">status : <%= @reservation.status %></p>
       </div>
-      <p class="resa-talent">Music : <%= @reservation.talent.instrument %></p>
+      <p class="resa-talent"><%= @reservation.talent.instrument.upcase %></p>
       <p class='resa-title'><%= @reservation.title %></p>
        <div class="resa-name">
-        <p>Musician : <span><%= link_to reservation.talent_user.first_name %> <%= link_to reservation.talent_user.last_name %></span></p>
+        <p>Musician : <span><%= link_to @reservation.talent_user.first_name %> <%= link_to @reservation.talent_user.last_name %></span></p>
       </div>
-        <p class="resa-date">Dates : <%= @reservation.begin_date %> | <%= @reservation.end_date %> </p>
+      <p class="resa-date">Dates : du <%= nice_date(@reservation.begin_date) %> au <%= nice_date(@reservation.end_date) %> </p>
+      <p>Paiements :</p>
       <div class="paiements">
-        <p>Paiements :</p>
-          <ul>
-            <li>
+          <div>
               <p><%= @reservation.total_hours.round %>heures x <%= @reservation.talent.price %> € : <%= @reservation.total_price.round %> €</p>
+          </div>
+          <div>
               <p>Frais de service : <%= @reservation.fees.round %> € </p>
-              <% if current_user == @reservation.talent_user %>
-                <p>TOTAL : <%= (@reservation.total_price - @reservation.fees).round %> €</p>
-              <% else %>
-                <p>TOTAL : <%= (@reservation.total_price + @reservation.fees).round %> €</p>
-              <% end %>
-            </li>
-          </ul>
+          </div>
+          <div>
+            <% if current_user == @reservation.talent_user %>
+              <p>TOTAL : <%= (@reservation.total_price - @reservation.fees).round %> €</p>
+            <% else %>
+              <p>TOTAL : <%= (@reservation.total_price + @reservation.fees).round %> €</p>
+            <% end %>
+          </div>
+        </div>
+
+        <div>
         <p class='resa-title'>Infos pratiques du musicien: <%= @reservation.talent.infos %></p>
+        </div>
+
         <% if @user = @reservation.client && @reservation.accepted? %>
           <p><%= link_to "See invoice" %></p>
         <% end %>
-        <% if @user = @reservation.client %>
-          <p><%= link_to "Back to my reservations", index_client_reservations_path %></p>
-        <% elsif @user = @reservation.talent_user %>
-          <p><%= link_to "Back to my reservations", index_talent_reservations_path %></p>
+        <% if current_user == @reservation.client %>
+          <p><%= link_to "Back to my musicians bookings", index_client_reservations_path %></p>
+        <% elsif current_user == @reservation.talent_user %>
+          <p><%= link_to "Back to my reservations as musician", index_talent_reservations_path %></p>
         <% end %>
         <div>
           <% if current_user == @reservation.talent_user && @reservation.pending? %>
@@ -52,15 +59,31 @@
   <div class="resa-right">
     <div class="musician resa-contact">
       <img src="https://via.placeholder.com/60" alt="" class="booking-musician-avatar">
-      <div class="resa-name">
-        <p><%= @user.first_name %> <%= @user.last_name %></p>
-      </div>
-      <div class="resa-description">
-        <p><%= @user.description %></p>
-      </div>
-      <div class="resa-name">
-        <p>Contact <%= @user.first_name %>: <%= @user.phone_number %></p>
-      </div>
+
+        <% if current_user == @reservation.talent_user %>
+          <div class="resa-name">
+          <p><%= @reservation.client.first_name %> <%= @reservation.client.last_name %></p>
+          </div>
+          <div class="resa-description">
+          <p><%= @reservation.client.description %></p>
+        </div>
+        <div class="resa-name">
+          <p>Contact : <%= @reservation.client.phone_number %></p>
+        </div>
+
+      <% elsif current_user == @reservation.client %>
+        <div class="resa-name">
+        <p><%= @reservation.talent_user.first_name %> <%= @reservation.talent_user.last_name %></p>
+        </div>
+        <div class="resa-description">
+        <p><%= @reservation.talent_user.description %></p>
+        </div>
+        <div class="resa-name">
+         <p>Contact : <%= @reservation.talent_user.phone_number %></p>
+        </div>
+
+      <% end %>
+
     </div>
   </div>
 

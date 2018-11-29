@@ -109,8 +109,8 @@
 }
 
 .resa-left {
-  flex: 1 1 70vw;
-  margin: 0 0 200px 0;
+  flex: 1 1 50vw;
+  margin: 0 0 0 0;
   background-color: white;
   height: 100vh;
 }
@@ -126,7 +126,12 @@
 
 .title {
   display: flex;
-  margin-right: 100px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+}
 
+.title-item {
+  flex: 0 0 50vw
 }
 
