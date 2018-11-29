@@ -48,7 +48,7 @@ client = User.create!(
   password_confirmation: '12345678',
 )
 
-client.remote_photo_url = 'https://res.cloudinary.com/dhp5qp6ol/image/upload/v1543402082/gd2nzfw1xqmxfy87uk7c.jpg'
+client.remote_photo_url = 'http://www.differencebetween.info/sites/default/files/images_articles_d7_1/musician.jpg'
 client.save
 
 10.times do
@@ -58,7 +58,7 @@ client.save
     price:  Faker::Number.between(10, 500),
     user: User.all.sample,
   )
-  talent.remote_photo_url = 'https://res.cloudinary.com/dhp5qp6ol/image/upload/v1543402082/gd2nzfw1xqmxfy87uk7c.jpg'
+  talent.remote_photo_url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Ambrose_Akinmusire_2011.jpg/1280px-Ambrose_Akinmusire_2011.jpg'
   talent.save
 end
 
