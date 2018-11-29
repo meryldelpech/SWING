@@ -1,7 +1,23 @@
-<h1>Welcome on Swing</h1>
-
-<% @talents.each do |talent| %>
-  <%= render "talent_card", talent: talent %>
-<% end %>
-
-
+<div class="container">
+  <h2> Our available artists in your city</h2>
+  <div class="row">
+      <% @talents.each do |talent| %>
+        <div class="col-xs-6 col-sm-4">
+          <div class="card" style="background-image: linear-gradient(rgba(254,199,97, 0.9), rgba(254,199,97,0.7)">
+              <%= link_to "", talent_path(talent), class: "card-link" %>
+               <%= cl_image_tag talent.user.photo, class: "card-user-result card-user" %>
+              <div class="card-description">
+                <ul class= "card-talents">
+                  <!-- pour chaque talent de user on crée un li -->
+                    <li>
+                      <%= talent.user.first_name.upcase %> <br>
+                      <%= talent.instrument %> |
+                      <%= talent.price %> €
+                    </li>
+                </ul>
+              </div>
+          </div>
+        </div>
+      <% end %>
+  </div>
+</div>
