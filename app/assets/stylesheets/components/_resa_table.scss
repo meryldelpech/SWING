@@ -131,12 +131,16 @@
 }
 
 .title-item {
-  margin: 0px !important;
   flex: 0 0 50vw;
+  margin: 0px !important;
   line-height: 1.4em;
   >p {
     padding-left: 12px;
   }
+}
+
+.form-status {
+  width: 150px;
 }
 
 .paiements {
@@ -145,7 +149,7 @@
   flex-direction: column;
   padding: 10px;
   .paiements-lines {
-    flex: 0 0 200px;
+    // flex: 0 0 200px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;

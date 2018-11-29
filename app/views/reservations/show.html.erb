@@ -5,14 +5,6 @@
       <div class="title">
         <h1 class="title-item">Reservation details</h1>
         <p class="title-item resa-status">Status : <%= @reservation.status %></p>
-        <div>
-          <% if current_user == @reservation.talent_user && @reservation.pending? %>
-            <%= simple_form_for @reservation do |f| %>
-              <%= f.input :status, collection: ["accepted", "declined"], placeholder: "accept or decline the booking" %>
-              <%= f.submit "confirm" %>
-            <% end %>
-          <% end %>
-        </div>
       </div>
 
       <br><br>
@@ -65,7 +57,18 @@
           <p><%= link_to "Back to my reservations as musician", index_talent_reservations_path %></p>
         <% end %>
 
-    </div>
+        <% if current_user == @reservation.talent_user && @reservation.pending? %>
+        <p class="resa-status">Accept or Decline this booking : </p>
+        <div class="form-status resa-status" >
+            <%= simple_form_for @reservation do |f| %>
+                <%= f.input :status, collection: ["accepted", "declined"] %>
+                <%= f.submit "confirm" %>
+            <% end %>
+        </div>
+        <% end %>
+
+
+      </div>
 
     </div>
 
