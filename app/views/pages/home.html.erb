@@ -1,16 +1,38 @@
 <%= render 'shared/banner' %>
 
 
-<h2> Popular musicians</h2>
 
 <div class="container">
-  <div class="row">
+  <h2> Popular musicians</h2>
 
-  <!-- pour chaque user qui a au moins un talent on lui crée une card qui est située dans un partial dans le dossier views/talents -->
-    <% @talented_users.each do |talented_user| %>
-      <div class="col-xs-12 col-sm-4">
-        <%= render 'talents/user_talent_card', talented_user: talented_user %>
-      </div>
-    <% end %>
+    <div class="row">
+    <!-- pour chaque user qui a au moins un talent on lui crée une card qui est située -->
+      <% @talented_users.each do |talented_user| %>
+        <div class="col-xs-6 col-sm-4">
+          <div class="card" style="background-image: linear-gradient(rgba(254,199,97, 0.9), rgba(254,199,97,0.7)">
+              <%= link_to "", talent_path(talented_user), class: "card-link" %>
+                <div class="card-description">
+                  <ul class= "card-talents">
+                    <!-- pour chaque talent de user on crée un li -->
+                    <% talented_user.talents.each do |talent| %>
+                      <div class="card-category"> <%= talent.experience %></div>
+                      <li>
+                        <%= talent.instrument %>
+                        <%= talent.price %> €
+                      </li>
+                    <% end %>
+                  </ul>
+                </div>
+
+              <div class="card-user-container">
+                <%= cl_image_tag talented_user.photo, class: "card-user" %>
+              </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
-</div>
+
+
+
+
