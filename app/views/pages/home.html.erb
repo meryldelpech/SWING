@@ -1,54 +1,40 @@
 <%= render 'shared/banner' %>
 <div class="container">
+
   <div class="row">
 
-    <div class= "text-center">
-      <h3>A corporate cocktail, a wedding party, a festival...</h3>
-      <h4>Find the perfect artist for your event</h4>
-    </div>
-
-    <!-- Ici cartes dynamiques pour les instruments -->
-
+ <!-- Ici cartes dynamiques pour les instruments -->
     <% @talents.each do |talent| %>
-      <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="col-xs-12 col-sm-6 col-md-4" >
+
         <div class="music" style="background-image: url('https://images.unsplash.com/photo-1508515250198-d9cf6419470f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2bc9c7f00cb2033a4f40ae44fd614565&auto=format&fit=crop&w=1050&q=80')">
-          <%= talent.instrument %>
+          <p> <%= talent.instrument %> </p>
         </div>
+
       </div>
     <% end %>
 
   </div>
+  <!-- Ici fin des cartes dynamiques pour les instruments -->
 
-  <h2> Popular musicians</h2>
-
-    <div class="row bottom-padding">
+  <!-- Ici cartes dynamiques pour les best users -->
+  <h2>Swingestions</h2>
+    <div class="row">
     <!-- pour chaque user qui a au moins un talent on lui crée une card qui est située -->
-      <% @talented_users.each do |talented_user| %>
+            <% @talented_users.each do |talented_user| %>
         <div class="col-xs-12 col-sm-6 col-md-4">
-          <div class="card" style="background-image: linear-gradient(rgba(254,199,97, 0.9), rgba(254,199,97,0.7)">
-              <%= link_to "", profile_path(talented_user), class: "card-link" %>
-                <div class="card-description">
-                  <ul class= "card-talents">
-                    <%= talented_user.first_name.upcase %>
-                    <br>
-                    <br>
-                    <!-- pour chaque talent de user on crée un li -->
-                    <% talented_user.talents.each do |talent| %>
-                      <li>
-                        <%= talent.instrument %> |
-                        <%= talent.price %> €
-                      </li>
-                    <% end %>
-                  </ul>
-                </div>
-
-              <div class="card-user-container">
-                <%= cl_image_tag talented_user.photo, class: "card-user" %>
-              </div>
-          </div>
+          <div class="best-user">
+            <%= cl_image_tag talented_user.photo, :width=>80, :height=>80, :gravity=>"faces", :crop=>"fill", :radius=>"max", class: "avatar" %>
+            <%= link_to "", profile_path(talented_user), class: "link" %>
+            <h3> <%= talented_user.first_name.upcase %> </h3>
+            <% talented_user.talents.each do |talent| %>
+              <h6> <strong><%= talent.instrument %></strong> <%= talent.price %> € </h6>
+            <% end %>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
+</div>
+<!-- Ici fin cartes dynamiques pour les best users -->
 </div>
 
 
