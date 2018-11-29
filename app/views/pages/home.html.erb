@@ -13,11 +13,13 @@
               <%= link_to "", talent_path(talented_user), class: "card-link" %>
                 <div class="card-description">
                   <ul class= "card-talents">
+                    <%= talented_user.first_name.upcase %>
+                    <br>
+                    <br>
                     <!-- pour chaque talent de user on crée un li -->
                     <% talented_user.talents.each do |talent| %>
-                      <div class="card-category"> <%= talent.experience %></div>
                       <li>
-                        <%= talent.instrument %>
+                        <%= talent.instrument %> |
                         <%= talent.price %> €
                       </li>
                     <% end %>
