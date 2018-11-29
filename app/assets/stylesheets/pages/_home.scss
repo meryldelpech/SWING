@@ -1,4 +1,21 @@
 // Specific CSS for your home-page
+.logo {
+  margin-right: 8px;
+}
+
+
+.music {
+  height: 175px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.07);
+  background-size: cover !important;
+  background-position: center;
+  color: white;
+  position: relative;
+  padding: 10px;
+  margin: 20px 20px;
+}
+
 .card {
   height: 175px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
@@ -30,7 +47,7 @@
 .card-description {
   position: absolute;
   bottom: 10px;
-  left: -80px;
+  left: -14px;
   text-align: center;
 }
 .card-description h2 {
