@@ -1,7 +1,6 @@
 <div class="navbar-wagon">
   <!-- Logo -->
 
-
   <%# if signed_in? %>
     <div class="navbar-wagon-left hidden-xs hidden-sm">
       <%= form_tag(talents_path, method: "get", class: "form-inline") do %>
@@ -22,4 +21,6 @@
 
  </div>
 
+<%= link_to "home", root_path %>
+<%= link_to "mon compte", reservations_path %>
 </div>
