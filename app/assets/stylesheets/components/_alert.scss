@@ -6,6 +6,7 @@
   margin: 0;
   text-align: center;
   color: white;
+  display: none;
 }
 .alert-info {
   background: $green;
@@ -13,3 +14,8 @@
 .alert-warning {
   background: $red;
 }
+.notice {
+  display: none
+}
+
+// fixer le problème de margin inssuportable
