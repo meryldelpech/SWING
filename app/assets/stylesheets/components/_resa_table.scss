@@ -1,0 +1,74 @@
+.resa {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid rgba(220,224,244,0.4);
+}
+.message:last-child {
+  border-bottom: none;
+}
+.resa-title {
+  flex: 1 1 auto;
+}
+.resa-title {
+  padding-left: 10px;
+  font-size: 13px;
+  color: rgba(0,0,0,0.7);
+  padding-left: 20px;
+  color: rgba(0,0,0,0.4);
+}
+.resa-title strong{
+  color: rgba(0,0,0,0.9);
+  color: rgba(0,0,0,0.9);
+}
+.resa-title p {
+  margin: 6px 0;
+}
+
+.resa-name {
+  padding-left: 10px;
+  // min-width: 100px;
+  flex: 0 1 10%;
+}
+.resa-name h3 {
+  font-size: 13px;
+  margin-bottom: 0px;
+}
+.resa-name p {
+  font-size: 13px;
+  font-weight: lighter;
+  opacity: 0.6;
+}
+
+.resa-date {
+  padding-left: 10px;
+  // min-width: 100px;
+  flex: 1 0 20%;
+}
+.resa-date p {
+  padding-left: 10px;
+  font-size: 13px;
+  line-height: 0.8em;
+}
+
+.resa-talent {
+  padding-left: 10px;
+  flex: 0 1 10%;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.resa-status {
+  flex: 0 1 15%;
+  font-size: 13px;
+  font-weight: bold;
+  margin-top: 5px;
+  line-height: 0.8em;
+}
+.resa-details {
+  flex: 0 1 10%;
+  font-size: 13px;
+  font-weight: bold;
+  text-decoration: none;
+}
+

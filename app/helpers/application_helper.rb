@@ -4,4 +4,8 @@ module ApplicationHelper
       raw file.read
     end
   end
+
+  def nice_date(date)
+    date.strftime("%d %m %Y - %H:%M")
+  end
 end

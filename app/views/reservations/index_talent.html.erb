@@ -1,3 +1,7 @@
+<div>
+    <%= link_to "add a talent", new_talent_path %>
+</div>
+
 <div class="table-booking">
   <h1>My bookings as talent</h1>
 
@@ -5,43 +9,42 @@
     <a href="#" class="tab">
       <p>Passed</p>
     </a>
-    <a href="#" class="tab active">
+    <a href="#" class="tab">
       <p>Futures</p>
+    </a>
+    <a href="#" class="tab active">
+      <p>All</p>
     </a>
   </div>
 
-  <div>
-    <%= link_to "add a talent", new_talent_path %>
-  </div>
 
-      <ul>
+      <ul class="resa-container">
         <% @reservations.each do |reservation| %>
-          <li>
-            <div>
-              <p><%= reservation.status %></p>
+          <li class="resa">
+            <img src="https://via.placeholder.com/60" alt="" class="resa-avatar">
+            <div class="resa-name">
+              <p><%= reservation.client.first_name %></p>
             </div>
-            <img src="https://via.placeholder.com/60" alt="">
-            <div>
-              <p><%= reservation.client.first_name %> <%= reservation.client.last_name %></p>
-            </div>
-            <div>
-              <p><%= reservation.talent.instrument %></p>
-              <p><%= link_to "See details", reservation_path(reservation) %> </p>
-            </div>
-            <div>
-              <p>Begin :<%= reservation.begin_date %></p>
-              <p>End : <%= reservation.end_date %></p>
-            </div>
-            <div>
+            <div class="resa-title">
               <p><%= reservation.title %></p>
             </div>
-            <div>
-              <p>Gain : <%= (reservation.total_price - reservation.fees).round %> €</p>
+            <div class="resa-talent">
+              <p><%= reservation.talent.instrument %></p>
+            </div>
+            <div class="resa-date">
+              <p>Du : <%= nice_date(reservation.begin_date) %></p>
+              <p>Au : <%= nice_date(reservation.end_date) %></p>
+            </div >
+            <div class="resa-status">
+              <p><%= reservation.status %></p>
+              <p class="price">Gain : <%= (reservation.total_price - reservation.fees).round %> €</p>
+            </div>
+            <div class="resa-details">
+              <p><%= link_to "See details", reservation_path(reservation) %> </p>
             </div>
           </li>
         <% end %>
 
       </ul>
 </div>
-
 
