@@ -1,8 +1,33 @@
+.name-instru-star {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px;
+  align-items: center;
+  h2 {
+    margin: 0px;
+  }
+  p {
+    margin: 0px;
+    font-weight: bold;
+  }
+}
 
+.avatar-talent {
+  position: absolute;
+  left: 65px;
+  top: 40px;
+}
+
+.image-of-talent {
+  padding: 0px;
+  overflow: auto;
+
+}
 
 .section-user {
   background: $primary;
   color: rgba(255,255,255,1);
+  padding: 0px;
 
   display: flex;
   align-items: center;
@@ -16,8 +41,8 @@
     width: 25vw;
     background: $primary;
     box-shadow: 0 0 50px 0 rgba(0,0,0,.5);
-    padding: 24px;
     margin: 0;
+    overflow: auto;
     }
     .user-descritpion {
       position: relative;
