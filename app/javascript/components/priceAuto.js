@@ -30,11 +30,16 @@ const calculatePrice = () => {
   document.getElementById("total-net").innerHTML = `TOTAL to pay : ${totalNet} €`
 }
 
-document.getElementById("end-date").addEventListener("change", (event) => {
-  event.preventDefault()
-  console.log(event)
-  calculatePrice()
-})
+const selected_element = document.getElementById("end-date");
+
+if(selected_element) {
+  selected_element.addEventListener("change", (event) => {
+    event.preventDefault()
+    console.log(event)
+    calculatePrice()
+  })
+}
+
 
 
 
