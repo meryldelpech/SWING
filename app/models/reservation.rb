@@ -14,6 +14,7 @@ class Reservation < ApplicationRecord
     (self.end_date.to_time - self.begin_date.to_time) / 1.hours
   end
 
+
   private
 
   def set_status
