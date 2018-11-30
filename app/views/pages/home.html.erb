@@ -7,6 +7,7 @@
     <% @talents.each do |talent| %>
       <div class="col-xs-12 col-sm-6 col-md-4" >
 
+
         <div class="music" style="background-image: url('<%= cl_image_path talent.photo, crop: :fill %>')">
           <p> <%= talent.instrument %> </p>
         </div>
