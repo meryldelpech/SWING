@@ -22,7 +22,13 @@
     <div class="row">
     <!-- pour chaque user qui a au moins un talent on lui crée une card qui est située -->
             <% @talented_users.each do |talented_user| %>
+          <%= link_to profile_path(talented_user), class: 'logo' do  %>
         <div class="col-xs-12 col-sm-6 col-md-4">
+
+
+
+
+
           <div class="best-user">
             <%= cl_image_tag talented_user.photo, :width=>80, :height=>80, :gravity=>"faces", :crop=>"fill", :radius=>"max", class: "avatar" %>
             <%= link_to "", profile_path(talented_user), class: "link" %>
@@ -30,8 +36,9 @@
             <% talented_user.talents.each do |talent| %>
               <h6> <strong><%= talent.instrument %></strong> <%= talent.price %> € </h6>
             <% end %>
-        </div>
+          </div>
       </div>
+          <% end %>
     <% end %>
 </div>
 <!-- Ici fin cartes dynamiques pour les best users -->

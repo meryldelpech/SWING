@@ -8,12 +8,18 @@ div {
     padding-bottom: 15px;
   .music {
     background-size: cover !important;
-    height: 175px;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+    // height: 175px;
+    // text-shadow: 0 1px 3px rgba(0,0,0,0.6);
     background-position: center;
     color: white;
     position: relative;
     padding: 10px;
+    p {
+      font-size: 48px;
+      font-weight: bold;
+      text-align: center;
+      padding-top: 24px;
+    }
     // margin: 12px;
   }
 
@@ -23,11 +29,13 @@ div {
     padding-left: 95px;
     padding-right: 15px;
     padding-bottom: 30px;
-    transition: left 0.1s;
+    transition: color 0.25s;
+    transition: border 0.25s;
     &:hover {
-      color: $primary;
+      color: white;
+      background: $primary;
       .avatar {
-        left: 10px;
+        border: 9px solid $primary;
       }
     }
     h3 {
