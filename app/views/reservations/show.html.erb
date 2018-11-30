@@ -12,7 +12,7 @@
 
       <p class="resa-title"><%= @reservation.title %></p>
 
-       <div class="resa-name">
+      <div class="resa-name">
         <p>Musician : <span><%= link_to @reservation.talent_user.first_name %> <%= link_to @reservation.talent_user.last_name %></span></p>
       </div>
 
@@ -28,44 +28,44 @@
       <br>
       <p class="resa-date">Paiements :</p>
       <div class="paiements">
-          <div class="paiements-lines">
-              <p><%= @reservation.total_hours.round %>heures x <%= @reservation.talent.price %> € : </p>
-              <p><%= @reservation.total_price.round %> €</p>
-          </div>
-          <div class="paiements-lines">
-              <p>Frais de service : </p>
-              <p><%= @reservation.fees.round %> €</p>
-          </div>
-          <div class="paiements-lines">
-            <% if current_user == @reservation.talent_user %>
-              <p>TOTAL : </p>
-              <p><%= (@reservation.total_price - @reservation.fees).round %> €</p>
-            <% else %>
-              <p>TOTAL </p>
-              <p>: <%= (@reservation.total_price + @reservation.fees).round %> €</p>
-            <% end %>
-          </div>
+        <div class="paiements-lines">
+          <p><%= @reservation.total_hours.round %>heures x <%= @reservation.talent.price %> € : </p>
+          <p><%= @reservation.total_price.round %> €</p>
         </div>
-
-
-        <% if @user = @reservation.client && @reservation.accepted? %>
-          <p class="btn btn-primary"><%= link_to "See invoice" %></p>
-        <% end %>
-        <% if current_user == @reservation.client %>
-          <p><%= link_to "Back to my musicians bookings", index_client_reservations_path %></p>
-        <% elsif current_user == @reservation.talent_user %>
-          <p><%= link_to "Back to my reservations as musician", index_talent_reservations_path %></p>
-        <% end %>
-
-        <% if current_user == @reservation.talent_user && @reservation.pending? %>
-        <p class="resa-status">Accept or Decline this booking : </p>
-        <div class="form-status resa-status" >
-            <%= simple_form_for @reservation do |f| %>
-                <%= f.input :status, collection: ["accepted", "declined"] %>
-                <%= f.submit "confirm" %>
-            <% end %>
+        <div class="paiements-lines">
+          <p>Frais de service : </p>
+          <p><%= @reservation.fees.round %> €</p>
         </div>
-        <% end %>
+        <div class="paiements-lines">
+          <% if current_user == @reservation.talent_user %>
+            <p>TOTAL : </p>
+            <p><%= (@reservation.total_price - @reservation.fees).round %> €</p>
+          <% else %>
+            <p>TOTAL </p>
+            <p>: <%= (@reservation.total_price + @reservation.fees).round %> €</p>
+          <% end %>
+        </div>
+      </div>
+
+
+      <% if @user = @reservation.client && @reservation.accepted? %>
+        <p class="btn btn-primary"><%= link_to "See invoice" %></p>
+      <% end %>
+      <% if current_user == @reservation.client %>
+        <p><%= link_to "Back to my musicians bookings", index_client_reservations_path %></p>
+      <% elsif current_user == @reservation.talent_user %>
+        <p><%= link_to "Back to my reservations as musician", index_talent_reservations_path %></p>
+      <% end %>
+
+      <% if current_user == @reservation.talent_user && @reservation.pending? %>
+      <p class="resa-status">Accept or Decline this booking : </p>
+      <div class="form-status resa-status" >
+          <%= simple_form_for @reservation do |f| %>
+              <%= f.input :status, collection: ["accepted", "declined"] %>
+              <%= f.submit "confirm" %>
+          <% end %>
+      </div>
+      <% end %>
 
 
       </div>
