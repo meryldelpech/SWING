@@ -3,19 +3,19 @@
   <div class="row">
       <% @talents.each do |talent| %>
         <div class="col-xs-6 col-sm-4">
-          <div class="card" style="background-image: linear-gradient(rgba(254,199,97, 0.9), rgba(254,199,97,0.7)">
-              <%= link_to "", talent_path(talent), class: "card-link" %>
-               <%= cl_image_tag talent.user.photo, class: "card-user-result card-user" %>
-              <div class="card-description">
-                <ul class= "card-talents">
+          <div class="best-user">
+            <%= cl_image_tag talent.user.photo, :width=>80, :height=>80, :gravity=>"faces", :crop=>"fill", :radius=>"max", class: "avatar" %>
+              <%= link_to talent_path(talent), class: 'best-user' do %>
+
+
+
                   <!-- pour chaque talent de user on crée un li -->
-                    <li>
-                      <%= talent.user.first_name.upcase %> <br>
+                      <h3> <%= talent.user.first_name.upcase %> </h3>
                       <%= talent.instrument %> |
                       <%= talent.price %> €
-                    </li>
-                </ul>
-              </div>
+
+                <% end %>
+
           </div>
         </div>
       <% end %>
