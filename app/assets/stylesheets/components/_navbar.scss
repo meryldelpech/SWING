@@ -5,6 +5,7 @@ nav {
   align-items: center;
   justify-content: space-between;
   position: fixed;
+  background: white;
   top: 0px;
   width: 100vw;
   z-index: 100;
@@ -13,13 +14,13 @@ nav {
     // color: $primary;
   }
   a {
-    color: white;
+    color: $primary;
     font-weight: bold;
 
   }
   form {
     input {
-      color: white;
+      color: $primary;
       border: none;
       outline: none;
       box-shadow: none;
@@ -27,19 +28,19 @@ nav {
       padding: 4px 2px;
     }
     input[type="text"]{
-      color: white;
+      color: $primary;
       border-radius: none !important;
       &:focus {
       background: rgba(255,255,255,.25);
       }
     }
     ::placeholder{
-      color: white;
+      color: $primary;
     }
     input[type="submit"]{
       &:focus{
         background: $primary;
-        color: white;
+        color: $primary;
       }
     }
   }
