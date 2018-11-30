@@ -6,14 +6,10 @@
           <div class="best-user">
             <%= cl_image_tag talent.user.photo, :width=>80, :height=>80, :gravity=>"faces", :crop=>"fill", :radius=>"max", class: "avatar" %>
               <%= link_to talent_path(talent), class: 'best-user' do %>
-
-
-
                   <!-- pour chaque talent de user on crée un li -->
                       <h3> <%= talent.user.first_name.upcase %> </h3>
                       <%= talent.instrument %> |
                       <%= talent.price %> €
-
                 <% end %>
 
           </div>

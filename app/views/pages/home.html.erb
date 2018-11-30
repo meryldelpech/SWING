@@ -6,7 +6,6 @@
  <!-- Ici cartes dynamiques pour les instruments -->
     <% @talents.each do |talent| %>
       <div class="col-xs-12 col-sm-6 col-md-4" >
-
         <div class="music" style="background-image: url('<%= cl_image_path talent.photo, crop: :fill %>')">
           <p> <%= talent.instrument %> </p>
         </div>
@@ -19,22 +18,27 @@
 
   <!-- Ici cartes dynamiques pour les best users -->
   <h2>Swingestions</h2>
-    <div class="row">
-    <!-- pour chaque user qui a au moins un talent on lui crée une card qui est située -->
-      <% @talented_users.each do |talented_user| %>
-        <div class="col-xs-12 col-sm-6 col-md-4">
 
+
+
+  <div class="row">
+    <% @talented_users.each do |talented_user| %>
+
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <%= link_to profile_path(talented_user), class: 'logo' do  %>
           <div class="best-user">
             <%= cl_image_tag talented_user.photo, :width=>80, :height=>80, :gravity=>"faces", :crop=>"fill", class: "avatar" %>
-            <%= link_to "", profile_path(talented_user), class: "best-user" %>
             <h3> <%= talented_user.first_name.upcase %> </h3>
             <% talented_user.talents.each do |talent| %>
               <h6> <strong><%= talent.instrument %></strong> <%= talent.price %> € </h6>
             <% end %>
           </div>
+
+          <% end %>
         </div>
-      <% end %>
-</div>
+
+    <% end %>
+  </div>
 <!-- Ici fin cartes dynamiques pour les best users -->
 </div>
 
