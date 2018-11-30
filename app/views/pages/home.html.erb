@@ -6,9 +6,7 @@
  <!-- Ici cartes dynamiques pour les instruments -->
     <% @talents.each do |talent| %>
       <div class="col-xs-12 col-sm-6 col-md-4" >
-
-        <div class="music" style="background-image: url('https://images.unsplash.com/photo-1508515250198-d9cf6419470f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2bc9c7f00cb2033a4f40ae44fd614565&auto=format&fit=crop&w=1050&q=80')">
-
+        <div class="music" style="background-image: url('<%= cl_image_path talent.photo, crop: :fill %>')">
           <p> <%= talent.instrument %> </p>
         </div>
 
@@ -21,6 +19,8 @@
   <!-- Ici cartes dynamiques pour les best users -->
   <h2>Swingestions</h2>
 
+
+
   <div class="row">
     <% @talented_users.each do |talented_user| %>
 
@@ -28,12 +28,12 @@
         <%= link_to profile_path(talented_user), class: 'logo' do  %>
           <div class="best-user">
             <%= cl_image_tag talented_user.photo, :width=>80, :height=>80, :gravity=>"faces", :crop=>"fill", class: "avatar" %>
-
             <h3> <%= talented_user.first_name.upcase %> </h3>
             <% talented_user.talents.each do |talent| %>
               <h6> <strong><%= talent.instrument %></strong> <%= talent.price %> € </h6>
             <% end %>
           </div>
+
           <% end %>
         </div>
 

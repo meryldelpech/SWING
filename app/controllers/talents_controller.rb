@@ -1,7 +1,13 @@
 class TalentsController < ApplicationController
 
   def index
-    @talents = Talent.where("instrument ILIKE '#{params[:instrument]}'")
+    #@location = Talent.reservation.where("location ILKIKE '#{params[:location]}")
+    # @user = Talent.find(params[:user_id])
+
+    sql_query = " \
+           talents.instrument ILIKE :instrument \
+         "
+    @talents = Talent.where(sql_query, instrument: "%#{params[:instrument]}%")
   end
 
   def show

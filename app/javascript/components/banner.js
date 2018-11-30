@@ -1,11 +1,14 @@
 import Typed from 'typed.js';
 
 const loadDynamicBannerText = () => {
-  new Typed('#banner-typed-text', {
-    strings: ["<h1> for YOUR corporate cocktail <br> THE Trumpetist </h1>", "THE Drumer <br> for YOUR Wedding", "THE Mouse <br> for YOUR Cat"],
-    typeSpeed: 5,
-    loop: true
-  });
+  const typedInput = document.getElementById('banner-typed-text');
+  if (typedInput) {
+    new Typed('#banner-typed-text', {
+      strings: ["THE trumpetist for YOUR corporate cocktail", "THE drumer for YOUR wedding", "THE saxophonist for YOUR festival"],
+      typeSpeed: 45,
+      loop: true
+    });
+  }
 };
 
 export { loadDynamicBannerText };
