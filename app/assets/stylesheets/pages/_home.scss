@@ -29,25 +29,26 @@ div {
     padding-left: 95px;
     padding-right: 15px;
     padding-bottom: 30px;
+    color: white;
+    border: 6px solid white;
     transition: color 0.25s;
-    transition: border 0.25s;
+    background: $primary;
+    height: 200px;
     &:hover {
-      color: white;
-      background: $primary;
+      color: $primary;
+      background: white;
       .avatar {
-        border: 9px solid $primary;
+        border: 6px solid $primary;
       }
     }
     h3 {
       // letter-spacing: .5em;
       font-weight: bold;
-
     }
     .avatar {
       position: absolute;
       top: -15px;
       left: -15px;
-
       border-radius: 50%;
     }
   }
