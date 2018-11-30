@@ -15,7 +15,7 @@
     <p><%= @talent.instrument %></p>
     <p>(3 stars)</p>
     <p><%= @talent.user.description %></p>
-    <p><%= @talent.price %></p>
+    <p id="talent-price"><%= @talent.price %></p>
     <h3>Last events</h3>
     <p>
       <% if @reservation.title? %>
@@ -33,11 +33,15 @@
     <%= f.input :location %>
     <%= f.input :title %>
     <%= f.input :begin_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-    <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+    <%= f.input :end_date, as: :string, required: false, input_html: {id: "end-date", class: "datepicker"} %>
+    <p id="total-price"></p>
+    <p id="fees"></p>
+    <p id="total-net"></p>
     <%= f.button :submit, "Book", class: "btn btn-primary" %>
     <%= f.button :button, "Reset", type: "reset", class: "btn-outline-secondary" %>
   <% end %>
 </div>
+
   </section>
 </section>
 
