@@ -1,0 +1,34 @@
+  footer {
+    position: sticky;
+    bottom: 0px;
+    // z-index: -1;
+    // background: linear-gradient(90deg, $primary 10%, rgba(0,0,0,0) 20%),
+    //             linear-gradient(-90deg, $primary 10%, rgba(0,0,0,0) 20%);
+    color: white;
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 9px 48px;
+      // box-shadow: 0 0 50px 0 $shadow;
+
+      p {
+        margin: 0px;
+        font-size: .5em;
+        i {
+          // color: red;
+        }
+      }
+      span {
+        a {
+          color: white;
+          padding-right: 24px;
+          font-size: 1em ;
+          &:hover {
+            color: $secondary;
+          }
+        }
+      }
+    }
+  }

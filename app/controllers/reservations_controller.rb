@@ -1,6 +1,7 @@
 class ReservationsController < ApplicationController
   def index_client
     @reservations = current_user.reservations
+
   end
 
   def index_talent
@@ -9,11 +10,11 @@ class ReservationsController < ApplicationController
 
   def show
     @reservation = Reservation.find(params[:id])
-    if current_user == @reservation.client
-      @user = @reservation.talent_user
-    else
-      @user = @reservation.client
-    end
+    # if current_user == @reservation.client
+    #   @user = @reservation.talent_user
+    # else
+    #   @user = @reservation.client
+    # end
   end
 
   def new

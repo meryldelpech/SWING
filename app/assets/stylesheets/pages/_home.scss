@@ -1,1 +1,54 @@
 // Specific CSS for your home-page
+.logo {
+  margin-right: 8px;
+}
+div {
+  // padding: 0px !important;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  .music {
+    background-size: cover !important;
+    // height: 175px;
+    // text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+    background-position: center;
+    color: white;
+    position: relative;
+    padding: 10px;
+    p {
+      font-size: 48px;
+      font-weight: bold;
+      text-align: center;
+      padding-top: 24px;
+    }
+    // margin: 12px;
+  }
+
+  .best-user{
+    // height: 175px;
+    position: relative;
+    padding-left: 95px;
+    padding-right: 15px;
+    padding-bottom: 30px;
+    transition: color 0.25s;
+    transition: border 0.25s;
+    &:hover {
+      color: white;
+      background: $primary;
+      .avatar {
+        border: 9px solid $primary;
+      }
+    }
+    h3 {
+      // letter-spacing: .5em;
+      font-weight: bold;
+
+    }
+    .avatar {
+      position: absolute;
+      top: -15px;
+      left: -15px;
+
+      border-radius: 50%;
+    }
+  }
+}
