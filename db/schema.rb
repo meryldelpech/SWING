@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_29_221920) do
+ActiveRecord::Schema.define(version: 2018_11_27_173253) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,15 +32,6 @@ ActiveRecord::Schema.define(version: 2018_11_29_221920) do
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
-  create_table "reviews", force: :cascade do |t|
-    t.integer "rating"
-    t.text "content"
-    t.bigint "reservation_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["reservation_id"], name: "index_reviews_on_reservation_id"
-  end
-
   create_table "talents", force: :cascade do |t|
     t.string "instrument"
     t.string "experience"
@@ -48,8 +39,8 @@ ActiveRecord::Schema.define(version: 2018_11_29_221920) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "infos"
     t.string "photo"
+    t.text "infos"
     t.index ["user_id"], name: "index_talents_on_user_id"
   end
 
@@ -73,6 +64,5 @@ ActiveRecord::Schema.define(version: 2018_11_29_221920) do
 
   add_foreign_key "reservations", "talents"
   add_foreign_key "reservations", "users"
-  add_foreign_key "reviews", "reservations"
   add_foreign_key "talents", "users"
 end

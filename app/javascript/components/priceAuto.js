@@ -37,7 +37,7 @@ if(selected_element) {
     event.preventDefault()
     console.log(event)
     calculatePrice()
-  })
+    })
 }
 
 
