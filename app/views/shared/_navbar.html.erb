@@ -1,27 +1,27 @@
-<div class="navbar-wagon">
+<nav>
   <!-- Logo -->
 
   <%# if signed_in? %>
-    <div class="navbar-wagon-left hidden-xs hidden-sm">
-      <%= link_to "home", root_path %>
-      <%= form_tag(talents_path, method: "get", class: "form-inline") do %>
-        <%= text_field_tag 'instrument', nil, placeholder: 'instrument', class:'form-input' %>
-        <%= text_field_tag 'where', nil, placeholder: 'location', class:'form-input' %>
-        <%= submit_tag "Search", class:"form-search" %>
+      <!-- home -->
+
+      <%= link_to root_path, class: 'logo' do %>
+      <strong>SWING</strong>
       <% end %>
-    </div>
+      <!-- search -->
+      <%= form_tag(talents_path, method: "get", class: "form-inline") do %>
+        <%= text_field_tag 'instrument', nil, placeholder: ' ↳ instrument' %>
+        <%= text_field_tag 'where', nil, placeholder: '↳ location' %>
+        <%= submit_tag " ⬅︎ Search", class:"form-search" %>
+      <% end %>
   <%# end %>
 
- <div class="navbar-wagon-right hidden-xs hidden-sm">
   <% if user_signed_in? %>
-    <%= link_to "profil", new_talent_path %>
+    <%= link_to "profil", profile_path(current_user) %>
     <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "btn navbar-btn" %>
   <% else %>
     <%= link_to "Inscription", new_user_registration_path, class: "btn navbar-btn" %>
     <%= link_to "Connexion", new_user_session_path, class: "btn navbar-btn" %>
   <% end %>
 
- </div>
 
-
-</div>
+</nav>

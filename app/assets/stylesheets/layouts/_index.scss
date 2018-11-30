@@ -3,5 +3,12 @@
 // @import "dashboard";
 // @import "profile";
 // @import "map";
+html {
+  z-index:-2;
+  body {
+    // background: linear-gradient(0deg, $primary, $transparent 10%);
+    // background: $primary;
+  }
 
+}
 

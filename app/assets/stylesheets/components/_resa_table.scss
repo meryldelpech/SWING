@@ -1,0 +1,160 @@
+.swing-container {
+  margin: 20px 50px;
+}
+
+.resa-container {
+  background-color: none;
+}
+.resa {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid rgba(220,224,244,0.4);
+}
+.message:last-child {
+  border-bottom: none;
+}
+.resa-title {
+  flex: 1 1 auto;
+  padding: 0 5px 0 5px;
+  font-size: 13px;
+}
+.resa-title strong{
+  font-weight: bold;
+}
+
+.resa-name {
+  padding: 0 5px 0 5px;
+  // min-width: 100px;
+  flex: 0 1 10%;
+}
+
+.resa-name span {
+  font-size: 13px;
+  font-weight: lighter;
+  opacity: 0.6;
+  text-decoration: none;
+}
+
+.resa-date {
+  padding: 0 5px 0 5px;
+  // min-width: 100px;
+  flex: 1 0 20%;
+}
+.resa-date p {
+  font-size: 13px;
+  line-height: 0.8em;
+  font-style: italic;
+}
+
+.resa-talent {
+  padding: 0 5px 0 5px;
+  flex: 0 1 10%;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.resa-status {
+  flex: 0 1 15%;
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 0.8em;
+  padding: 0 5px 0 5px;
+}
+
+.resa-details {
+  flex: 0 1 10%;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 0 5px 0 5px;
+}
+
+.resa-details a {
+  flex: 0 1 10%;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 0 5px 0 5px;
+  color: black;
+}
+
+.musicians-container {
+  background-color: rgb(240, 240, 240);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.musician {
+  display: flex;
+  flex: 0 0 25%;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  background-color: white;
+  margin: 50px 20px;
+  line-height: 0.6em;
+}
+
+.resa-contact{
+  width: 150px;
+}
+
+.resa-page{
+  display: flex;
+  .resa-left {
+    flex: 1 1 50vw;
+    margin: 0 0 0 0;
+    background-color: white;
+    height: 100vh;
+    padding: 36px 0 0 48px;
+  }
+
+  .resa-right {
+    flex: 1 1 auto;
+    height: 100vh;
+    background-color: $primary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  border-bottom: 1px solid rgba(220,224,244,0.4);
+}
+
+.title-item {
+  flex: 0 0 50vw;
+  margin: 0px !important;
+  line-height: 1.4em;
+  >p {
+    padding-left: 12px;
+  }
+}
+
+.form-status {
+  width: 150px;
+}
+
+.paiements {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+  .paiements-lines {
+    // flex: 0 0 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(220,224,244,0.4);
+  }
+}
+
+
